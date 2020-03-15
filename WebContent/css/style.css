@@ -187,8 +187,8 @@ h3.page_subtitle{
 }
 .navbar_left img{
 	display:inline-block;
-	max-width:40%;
-	padding:20px 0 0 0;
+	max-width:100%;
+	padding:8px 0 0 0;
 }
 .logo_text{ 
 	font-size:32px;
@@ -201,7 +201,7 @@ h3.page_subtitle{
 .logo_image a img{ 
 	display:inline-block;
 	max-width:40%;
-	padding:10px 0 0 0;
+	padding:5px 0 0 0;
 }
 /* HEADER CENTER */	
 .navbar_center{
@@ -1822,7 +1822,7 @@ float:left;
 margin:10px 0 0 5%;
 }
 a.backto img{
-width:90%;
+width:50%;
 display:block;
 }
 ul.comments{
@@ -2172,8 +2172,8 @@ color:#222222;
 /* -------------SMALL DESKTOP--------- */
 @media screen and (max-width: 1200px) {
 .logo_image a img{ 
-max-width:50%;
-padding:15px 0 0 0;
+max-width:100%;
+padding:5px 0 0 0;
 }
 .bottombarpages{
 height:70px;
@@ -2193,7 +2193,7 @@ height:60px;
 }
 .logo_image a img{ 
 max-width:100%;
-padding:40px 0 0 0;
+padding:5px 0 0 0;
 }
 .navbar_center{
 width:80%;
@@ -2281,8 +2281,8 @@ width:55px;
 height:50px;
 }
 .navbar_right img, .navbar_left img{
-max-width:40%;
-padding:12px 0 0 0;
+max-width:100%;
+padding:8px 0 0 0;
 }
 #pages_maincontent{
 top: 50px; 
@@ -2371,7 +2371,7 @@ width:65%;
 .logo_image a img{ 
 display:inline-block;
 max-width:100%;
-padding:40px 0 0 0;
+padding:5px 0 0 0;
 }	
 .gallery_switch a{
 width:8%;
