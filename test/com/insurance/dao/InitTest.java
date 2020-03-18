@@ -1,0 +1,54 @@
+package com.insurance.dao;
+
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.insurance.entity.User;
+import com.insurance.service.UserService;
+
+@RunWith(value=SpringJUnit4ClassRunner.class)
+@ContextConfiguration(value="classpath:applicationContext.xml")
+public class InitTest
+{
+	
+	@Autowired
+	private UserDao userDao;
+	
+	@Autowired
+	private UserService userService;
+
+	
+	@Test
+	@Ignore
+	public void testFindUser() 
+	{
+		Object findUser = userDao.findUser("user9");
+		System.out.println("findUser=" + findUser);
+	}
+	
+	@Test
+	public void testlogin() 
+	{
+		User user = userService.login("user0", "abc0000");
+		System.out.println("user=" + user);
+		System.out.println("user==null? :" + (user==null));
+	}
+
+	@Test
+	@Ignore
+	public void testAdd()
+	{
+		User user = new User();
+		user.setUserName("test3");
+		user.setUserPwd("testPwd3");
+		user.setUserEmail("test3@test.com");
+		user.setUserPhone(new Integer(45643231));
+		
+		userDao.addUser(user);
+	}
+	
+}

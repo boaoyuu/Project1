@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace：接口的全类名  -->
+<mapper namespace="com.insurance.dao.UserDao">
+
+    <!-- 这里使用类名别名 -->
+	<resultMap type="user" id="userMap">
+		<id column="user_id" property="userId"/>
+		<result column="user_name" property="userName"/>
+		<result column="user_pwd" property="userPwd"/>
+		<result column="user_email" property="userEmail"/>
+		<result column="user_phone" property="userPhone"/>
+	</resultMap>
+
+	<select id="findUser" resultType="User">
+		select * from user_info where user_name = #{userName}
+	</select>
+	
+	<!-- 根据用户名和密码查询 -->
+    <select id="findByUserNameAndPassword" resultType="User">
+        select * from user_info where user_name=#{userName} and user_pwd=#{userPwd}
+    </select>
+    
+    <!-- 增加用户 -->
+    <insert id="addUser" parameterType="User">
+        insert into user_info(user_name,user_pwd,user_email,user_phone) values(#{userName},#{userPwd},#{userEmail},#{userPhone})
+    </insert>
+    
+    
+
+</mapper>
