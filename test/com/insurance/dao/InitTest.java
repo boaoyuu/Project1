@@ -33,7 +33,7 @@ public class InitTest
 	@Test
 	public void testlogin() 
 	{
-		User user = userService.login("user0", "abc0000");
+		User user = userService.login("user0", "abc000");
 		System.out.println("user=" + user);
 		System.out.println("user==null? :" + (user==null));
 	}
