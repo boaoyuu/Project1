@@ -2,17 +2,12 @@ package com.insurance.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
-
 import com.insurance.entity.User;
 import com.insurance.service.UserService;
 
@@ -46,30 +41,30 @@ public class LoginController
 	}
 
 	/**
-     * 用户注册
-     */
+	 * 用户注册
+	 */
 	@ResponseBody
-    @RequestMapping(value="/userregister.do",method=RequestMethod.POST)
-    public Object register(User user) 
-    {
+	@RequestMapping(value = "/userregister.do", method = RequestMethod.POST)
+	public Object register(User user)
+	{
 		System.out.println("user: " + user);
 
 		Map<String, Object> map = new HashMap();
-    	
-        String userName = user.getUserName();
-        // 如果数据库中没有该用户，可以注册，否则跳转页面
-        if (userService.findUser(userName) == null) 
-        {
-            userService.register(user);
+
+		String userName = user.getUserName();
+		// 如果数据库中没有该用户，可以注册，否则跳转页面
+		if (userService.findUser(userName) == null)
+		{
+			userService.register(user);
 			map.put("result", 1);
 			map.put("msg", "注册成功!");
 
-        }else 
-        {
-        	//注册失败
+		} else
+		{
+			//注册失败
 			map.put("result", -1);
 			map.put("msg", "注册失败!");
-        }
+		}
 		return map;
-    }
+	}
 }
