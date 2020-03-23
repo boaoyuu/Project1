@@ -1,7 +1,6 @@
 package com.insurance.dao;
 
 import org.apache.ibatis.annotations.Param;
-
 import com.insurance.entity.User;
 
 public interface UserDao

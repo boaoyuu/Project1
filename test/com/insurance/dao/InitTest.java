@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.insurance.entity.Claim;
 import com.insurance.entity.User;
 import com.insurance.service.UserService;
 
@@ -17,6 +18,9 @@ public class InitTest
 	
 	@Autowired
 	private UserDao userDao;
+	
+	@Autowired
+	private ClaimDao claimDao;
 	
 	@Autowired
 	private UserService userService;
@@ -31,6 +35,7 @@ public class InitTest
 	}
 	
 	@Test
+	@Ignore
 	public void testlogin() 
 	{
 		User user = userService.login("user0", "abc000");
@@ -50,5 +55,17 @@ public class InitTest
 		
 		userDao.addUser(user);
 	}
+	
+	@Test
+	public void saveClaimTest()
+	{
+		Claim claim = new Claim();
+		
+		claim.setInsuredId(2222);
+		claim.setInsuredName("nameeeee");
+		
+		claimDao.saveClaim(claim);
+	}
+	
 	
 }
