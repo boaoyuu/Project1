@@ -6,9 +6,9 @@
     <!-- 增加用户 -->
     <insert id="saveClaim" parameterType="Claim">
         insert into claim_info
-        (insured_id,insured_name,insured_tel,claim_type,icd_code,diagnosis_name,incident_date,admission_date,discharge_date,hospital_no,surgical_code,surgical_date,relationship,claimant_id,claimant_name,claimant_tel) 
+        (insured_id,insured_name,insured_tel,claim_type,icd_code,incident_date,admission_date,discharge_date,hospital_no,surgical_code,surgical_date,relationship,claimant_id,claimant_name,claimant_tel) 
         values
-        (#{insuredId},#{insuredName},#{insuredTel},#{claimType},#{icdCode},#{diagnosisName},#{incidentDate},#{admissionDate},#{dischargeDate},#{hospitalNo},#{surgicalCode},#{surgicalDate},#{relationship},#{claimantId},#{claimantName},#{claimantTel})
+        (#{insuredId},#{insuredName},#{insuredTel},#{claimType},#{icdCode},#{incidentDate},#{admissionDate},#{dischargeDate},#{hospitalNo},#{surgicalCode},#{surgicalDate},#{relationship},#{claimantId},#{claimantName},#{claimantTel})
     </insert>
     
 

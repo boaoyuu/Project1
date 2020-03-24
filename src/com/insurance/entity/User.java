@@ -10,7 +10,7 @@ public class User
 
 	private String userEmail;
 
-	private Integer userPhone;
+	private String userPhone;
 	
 	@Override
 	public String toString() {
@@ -63,12 +63,12 @@ public class User
 		this.userEmail = userEmail;
 	}
 
-	public Integer getUserPhone()
+	public String getUserPhone()
 	{
 		return userPhone;
 	}
 
-	public void setUserPhone(Integer userPhone)
+	public void setUserPhone(String userPhone)
 	{
 		this.userPhone = userPhone;
 	}
