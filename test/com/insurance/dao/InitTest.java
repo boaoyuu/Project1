@@ -51,7 +51,7 @@ public class InitTest
 		user.setUserName("test3");
 		user.setUserPwd("testPwd3");
 		user.setUserEmail("test3@test.com");
-		user.setUserPhone(new Integer(45643231));
+		user.setUserPhone("45643231");
 		
 		userDao.addUser(user);
 	}
@@ -61,7 +61,7 @@ public class InitTest
 	{
 		Claim claim = new Claim();
 		
-		claim.setInsuredId(2222);
+		claim.setInsuredId("2222");
 		claim.setInsuredName("nameeeee");
 		
 		claimDao.saveClaim(claim);

@@ -4,24 +4,21 @@ import java.util.Date;
 
 public class Claim
 {
- 								
+
 	//身份证号
-	private Integer insuredId;
+	private String insuredId;
 
 	//被保人姓名
 	private String insuredName;
 
 	//被保人电话
-	private Integer insuredTel;
+	private String insuredTel;
 
 	//理赔类型
 	private String claimType;
 
 	//疾病代码
 	private String icdCode;
-
-	//疾病名
-	private String diagnosisName;
 
 	//就诊日
 	private Date incidentDate;
@@ -45,23 +42,13 @@ public class Claim
 	private String relationship;
 
 	//索保人证件号
-	private Integer claimantId;
-	
+	private String claimantId;
+
 	//索保人姓名
 	private String claimantName;
 
 	//索保人电话
-	private Integer claimantTel;
-
-	public Integer getInsuredId()
-	{
-		return insuredId;
-	}
-
-	public void setInsuredId(Integer insuredId)
-	{
-		this.insuredId = insuredId;
-	}
+	private String claimantTel;
 
 	public String getInsuredName()
 	{
@@ -71,16 +58,6 @@ public class Claim
 	public void setInsuredName(String insuredName)
 	{
 		this.insuredName = insuredName;
-	}
-
-	public Integer getInsuredTel()
-	{
-		return insuredTel;
-	}
-
-	public void setInsuredTel(Integer insuredTel)
-	{
-		this.insuredTel = insuredTel;
 	}
 
 	public String getClaimType()
@@ -101,16 +78,6 @@ public class Claim
 	public void setIcdCode(String icdCode)
 	{
 		this.icdCode = icdCode;
-	}
-
-	public String getDiagnosisName()
-	{
-		return diagnosisName;
-	}
-
-	public void setDiagnosisName(String diagnosisName)
-	{
-		this.diagnosisName = diagnosisName;
 	}
 
 	public Date getIncidentDate()
@@ -183,16 +150,6 @@ public class Claim
 		this.relationship = relationship;
 	}
 
-	public Integer getClaimantId()
-	{
-		return claimantId;
-	}
-
-	public void setClaimantId(Integer claimantId)
-	{
-		this.claimantId = claimantId;
-	}
-
 	public String getClaimantName()
 	{
 		return claimantName;
@@ -203,37 +160,52 @@ public class Claim
 		this.claimantName = claimantName;
 	}
 
-	public Integer getClaimantTel()
+	public String getInsuredId()
+	{
+		return insuredId;
+	}
+
+	public void setInsuredId(String insuredId)
+	{
+		this.insuredId = insuredId;
+	}
+
+	public String getInsuredTel()
+	{
+		return insuredTel;
+	}
+
+	public void setInsuredTel(String insuredTel)
+	{
+		this.insuredTel = insuredTel;
+	}
+
+	public String getClaimantId()
+	{
+		return claimantId;
+	}
+
+	public void setClaimantId(String claimantId)
+	{
+		this.claimantId = claimantId;
+	}
+
+	public String getClaimantTel()
 	{
 		return claimantTel;
 	}
 
-	public void setClaimantTel(Integer claimantTel)
+	public void setClaimantTel(String claimantTel)
 	{
 		this.claimantTel = claimantTel;
 	}
 
-	
 	@Override
 	public String toString()
 	{
-		return "Claim{" +
-				"insuredId='" + insuredId + '\'' +
-				", insuredName=" + insuredName +
-				", insuredTel='" + insuredTel + '\'' +
-				", claimType='" + claimType + '\'' +
-	            ", icdCode='" + icdCode + '\'' +
-	            ", diagnosisName='" + diagnosisName + '\'' +
-	            ", incidentDate='" + incidentDate + '\'' +
-	            ", admissionDate='" + admissionDate + '\'' +
-	            ", dischargeDate='" + dischargeDate + '\'' +
-	            ", hospitalNo='" + hospitalNo + '\'' +
-	            ", surgicalCode='" + surgicalCode + '\'' +
-	            ", surgicalDate='" + surgicalDate + '\'' +
-	            ", relationship='" + relationship + '\'' +
-	            ", claimantId='" + claimantId + '\'' +
-	            ", claimantName='" + claimantName + '\'' +
-	            ", claimantTel='" + claimantTel + '\'' +
-				'}';
+		return "Claim{" + "insuredId='" + insuredId + '\'' + ", insuredName=" + insuredName + ", insuredTel='" + insuredTel + '\'' + ", claimType='" + claimType + '\'' + ", icdCode='" + icdCode + '\''
+				+ ", incidentDate='" + incidentDate + '\'' + ", admissionDate='" + admissionDate + '\'' + ", dischargeDate='" + dischargeDate + '\'' + ", hospitalNo='" + hospitalNo + '\''
+				+ ", surgicalCode='" + surgicalCode + '\'' + ", surgicalDate='" + surgicalDate + '\'' + ", relationship='" + relationship + '\'' + ", claimantId='" + claimantId + '\''
+				+ ", claimantName='" + claimantName + '\'' + ", claimantTel='" + claimantTel + '\'' + '}';
 	}
 }
