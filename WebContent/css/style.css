@@ -17,7 +17,6 @@
 8. POPUPS
 9. SHOP LAYOUT
      9-1. SHOP ITEM PAGE 
-     9-2. SHOPPING CART - CECKOUT
      9-3. SUCCESS PAGE
 10. PHOTO GALLERY
 11. BLOG LAYOUT
@@ -35,6 +34,7 @@
 /*===============================================*/
 /* 2. GENERAL		 						 */
 /*===============================================*/	
+/*私有前缀名：-webkit-代表chrome、safari私有属性（支持）；-moz-代表firefox浏览器私有属性；-ms-代表IE浏览器私有属性；-o-代表Operai私有属性；*/
 html,
 body {
 	position: relative;
@@ -54,7 +54,7 @@ body {
 	overflow: hidden;
 	font-weight:300;
 }
-.clear{ 
+.clear{  /*清除*/
 	clear:both; 
 	display:block;
 }
@@ -88,13 +88,8 @@ blockquote span{
 	text-transform:uppercase;
 	line-height:30px;
 }
-.videocontainer{
-	max-width:100%; 
-	padding:0; 
-	display: block; 
-	margin:0;
-}
-#mobile_wrap{
+
+#mobile_wrap{ /*index-body*/
 	width:100%;
 	margin:auto;
 }
@@ -127,7 +122,7 @@ h5{
 h6{
 	font-size:16px;
 }
-h2.page_title{
+h2.page_title{ /*其他页面标题*/
 	width:90%;
 	font-size:20px;
 	line-height:25px;
@@ -146,7 +141,7 @@ h2.page_title span{
 	padding:5px;
 	margin:0 0 0 5px;
 }
-h2.blog_title{
+h2.blog_title{ /*健康咨询详情标题*/
 	width:90%;
 	font-size:24px;
 	line-height:28px;
@@ -157,21 +152,11 @@ h2.blog_title{
 	display:inline-block;
 	letter-spacing:-0.5px;
 }
-h3.page_subtitle{
-	width:95%;
-	font-size:16px;
-	line-height:25px;
-	font-weight:300;
-	padding:10px 0 10px 5%;
-	margin:0px 0 15px 0;
-	background-color:#5cd1ea;
-	display:inline-block;
-	letter-spacing:-0.5px;
-}
+
 /*===============================================*/
 /* 4. HEADER AND HEADER NAVIGATION */
 /*===============================================*/
-.navbarpages{
+.navbarpages{ /*顶部菜单和个人中心icon*/
 	position: fixed;
 	top:0px;
 	width:100%;
@@ -179,13 +164,13 @@ h3.page_subtitle{
 	z-index:999999;
 }
 /* HEADER LEFT */	
-	.navbar_left{
+	.navbar_left{ /*菜单icon*/
 	float:left;
 	width:5%;
 	padding:0 0 0 2%;
 	text-align:left;
 }
-.navbar_left img{
+.navbar_left img{ /*菜单icon图*/
 	display:inline-block;
 	max-width:40%;
 	padding:20px 0 0 0;
@@ -198,7 +183,7 @@ h3.page_subtitle{
 .logo_text a{
 	color:#222222;
 }
-.logo_image a img{ 
+.logo_image a img{ /*顶部栏logo*/
 	display:inline-block;
 	max-width:80%;
 	padding:15px 0 0 0;
@@ -211,27 +196,27 @@ h3.page_subtitle{
 	text-align:center;
 }
 /* HEADER RIGHT */	
-.navbar_right{
+.navbar_right{ /*个人中心icon*/
 	float:right;
 	width:5%;
 	text-align:center;
 	padding:0;
 }
-.navbar_right img{
+.navbar_right img{ /*个人中心icon图*/
 	display:inline-block;
 	max-width:40%;
 	padding:20px 0 0 0;
 }
-.whitebg{
+.whitebg{ /*白色背景*/
 	background-color:#ffffff;	
 }
-.graybg{
+.graybg{ /*灰色背景*/
 	background-color:#f7f7f7;	
 }
 /*===============================================*/
 /* 5. CUSTOM BUTTONS */
 /*===============================================*/	
-a.button_full{
+a.button_full{ /*通用大按钮*/
 width:100%; 
 display:inline-block;
 padding:20px 0;
@@ -275,47 +260,48 @@ font-family: inherit;
 cursor: pointer;
 background-color:#f7f7f7;
 }
-.button.active {
+.button.active { /*选中的按钮*/
 background: #5cd1ea;
 color: #222222;
 }
-.buttons-row .button:first-child {
+/*切换选项卡*/ 
+.buttons-row .button:first-child { /*选择每一个buttons-row中的button元素并设置样式，其中button元素是其父元素buttons-row的第一个子元素*/
 	border-radius: 0px 0px 0px 0px;
 	border-left-width: 0px;
 }
-.buttons-row .button:last-child {
+.buttons-row .button:last-child { /*最后一个子元素*/
 	border-radius: 0px 0px 0px 0px;
 }
-.btyellow{
+.btyellow{ /*通用大按钮的颜色*/
 background-color:#5cd1ea;
 color:#222222; 
 }
-.btmint{
+.btmint{ /*联系客服小按钮*/
 background-color:#61bb7e;
 color:#fff;
 }
 /*===============================================*/
 /* 6. LEFT AND RIGHT SLIDE PANELS */
 /*===============================================*/	
-.panel {
-z-index: 1000;
+.panel { /*展开面板的设置*/
+z-index: 1000; /*指定堆叠顺序*/
 display: none;
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-overflow: auto;
--webkit-overflow-scrolling: touch;
+-webkit-box-sizing: border-box;/* Safari b-b为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。 */
+-moz-box-sizing: border-box;/* Firefox */
+box-sizing: border-box; /* common */
+overflow: auto;/* 规定溢出内容如何处理：如果剩下内容被砍，则显示滚动条 */
+-webkit-overflow-scrolling: touch; /*属性控制元素在移动设备上是否使用滚动回弹效果.使用具有回弹效果的滚动, 当手指从触摸屏上移开，内容会继续保持一段时间的滚动效果。继续滚动的速度和持续的时间和滚动手势的强烈程度成正比。同时也会创建一个新的堆栈上下文。*/
 position: absolute;
 width: 300px;
 top: 0;
 height: 100%;
--webkit-transform: translate3d(0, 0, 0);
+-webkit-transform: translate3d(0, 0, 0); /*CSS3中3D位移，分别代表xyz*/
 transform: translate3d(0, 0, 0);
 -webkit-transition-duration: 400ms;
-transition-duration: 400ms;
+transition-duration: 400ms;/*规定完成过渡效果需要花费的时间*/
 color:#222222;
 }
-.panel-left, .pagepanel{
+.panel-left, .pagepanel{/*展开面板的底色*/
 background-color:#5cd1ea;
 }
 .panel-right{
@@ -324,7 +310,7 @@ background-color:#5cd1ea;
 
 /* 6-1. USER ACCOUNT SIDEBAR RIGHT */
 
-.user_login_info{
+.user_login_info{ /*右边面板登录信息*/
 padding:0px;
 }
 .user_thumb{
@@ -333,109 +319,111 @@ margin:auto;
 position:relative;
 }
 .user_thumb img{
-display:block;
-max-width:100%;
-z-index:777;
+display:block; /*规定元素应该生成的框的类型。block前后会带有换行符*/
+max-width:100%; /*max-width 定义元素的最大宽度。*/
+z-index:777; /*指定一个元素的堆叠顺序，数字大在上，小在下*/
 }
-.user_details{
+.user_details{/*欢迎文字*/
 position:absolute;
 bottom:0px;
-left:0px;
-width:100%;
-height:132px;
+left:0px; /*当前元素的左侧与父元素左侧(就是原来默认位置)的距离值。*/
+width:100%;/*设置元素的宽度*/
+height:132px;/*设置元素的高度*/
 z-index:888;
 background:url(../img/trans_black_gradient.png) repeat-x;
 }
-.user_details p{
-padding:70px 0 0 10px;
+.user_details p{/*欢迎文字*/
+padding:70px 0 0 10px;/*内边距*/
 text-align:left;
 font-size:14px;
 color:#5cd1ea;
 }
-.user_details p span{
-display:block;
+.user_details p span{/*欢迎文字*/
+display:block;/*规定元素应该生成的框的类型。block前后会带有换行符*/
 font-size:22px;
 padding:5px 0 0 0;
 color:#ffffff;
 }
-.user_avatar{
+.user_avatar{ /*个人中心头像*/
 z-index:999;
 position:absolute;
 bottom:15px;
 right:15px;
 width:30%;
 }
-.user_avatar img{
+.user_avatar img{/*个人中心头像*/
 display:block;
 max-width:100%;
 margin:10px 0 0 0;
-border-radius:50%;
+border-radius:50%;/*图片圆角*/
 }
-.user-nav{
+.user-nav{/*个人中心菜单*/
 padding:20px 5% 0 5%;
 width:90%;
 }
-.user-nav ul{
+.user-nav ul{/*个人中心菜单*/
 width:100%;
 list-style:none;
 padding:0px;
 margin:0px;
 display:block;
 }
-.user-nav ul li{
+.user-nav ul li{/*个人中心菜单*/
 width:90%;
 list-style:none;
 padding:5px 0 10px 0;
 margin:0 0 0 5%;
-display:inline-block;
+display:inline-block; /*既有block的宽度高度特性，又有inline的同行特性*/
 text-align:center;
-border-bottom:1px #48b9d1 solid;
-}
-.user-nav ul li img{
+border-bottom:1px #48b9d1 solid; /*下边框*/
+} 
+.user-nav ul li img{ /*个人中心列表图片*/
 display:inline-block;
 max-width:12%;
 float:left;
 }
-.user-nav ul li span{
+.user-nav ul li span{ /*个人中心列表名字*/
 display:block;
 float:left;
 text-align:left;
 padding:5px 0 0 20px;
 }
-.user-nav ul li strong{
+.user-nav ul li strong{ /*个人中心消息圆气泡*/
 display:block;
 float:right;
 text-align:left;
 margin:0 5px 0 0;
 width:30px;
 height:30px;
-line-height:30px;
+line-height:30px; /*行间距*/
 text-align:center;
--webkit-border-radius:15px;-moz-border-radius:15px;border-radius:15px;
+-webkit-border-radius:15px;
+-moz-border-radius:15px;
+border-radius:15px; /*圆角*/
 background-color:#222222;
 color:#fff;
 }
-.user-nav ul li a{
+.user-nav ul li a{/*个人中心菜单*/
 color:#fff;
 font-size:14px;
-font-weight:300;
+font-weight:300; /*文本粗细*/
 color:#222222;
 }
 
 /* 6-2. MAIN NAVIGATION SIDEBAR LEFT */
 
-.main-nav{
+.main-nav{ /*左边菜单*/
 padding:0 0 0 0px;
 width:100%;
 }
-.main-nav ul{
-width:90%;
+.main-nav ul{ /*左边菜单的列表样式*/
+width:90%;/*左边菜单的列表content部分宽度*/
 list-style:none;
 padding:0px;
 margin:5%;
 display:block;
 }
-.main-nav.icons_31 ul li{
+.main-nav.icons_31 ul li{ /*左边菜单的列表图标样式*/
 width:28%;
 list-style:none;
 padding:15px 0;
@@ -443,50 +431,31 @@ margin:2%;
 display:inline-block;
 text-align:center;
 }
-.main-nav.icons_inline ul li{
-width:96%;
-list-style:none;
-padding:5px 0 10px 0;
-margin:5px 2%;
-display:block;
-float:left;
-clear:both;
-text-align:left;
-border-bottom:1px #48b9d1 solid;
-}
 
-.main-nav ul li.subnav{
+
+.main-nav ul li.subnav{/*理赔中心菜单右上角的小二级菜单*/
 background:url(../img/subnav.png) no-repeat right top;
 }
 
-.main-nav.icons_31 ul li img{
+.main-nav.icons_31 ul li img{ /*左边菜单*/
 display:inline-block;
 max-width:40%;
 }
-.main-nav.icons_inline ul li img{
-display:inline-block;
-max-width:10%;
-float:left;
-}
+
 .main-nav.icons_31 ul li span{
 display:block;
 text-align:center;
 padding:0 0 0 0;
 }
-.main-nav.icons_inline  ul li span{
-display:block;
-float:left;
-text-align:left;
-padding:5px 0 0 20px;
-}
 
-.main-nav ul li a{
+
+.main-nav ul li a{ /*左边菜单*/
 font-size:13px;
 font-weight:300;
 color:#222222;
 }
 
-.subnav_header{
+.subnav_header{ /*子菜单返回*/
 width:90%;
 margin:0 5%;
 float:left;
@@ -494,17 +463,17 @@ clear:both;
 padding:10px 0;
 border-bottom:1px #414141 solid;
 }
-.subnav_header a{
+.subnav_header a{ /*子菜单back*/
 display:block;
 width:30%;
 color:#222222;
 }
-.subnav_header a img{
+.subnav_header a img{ /*子菜单返回*/
 display:block;
 width:30%;
 float:left;
 }
-.subnav_header a span{
+.subnav_header a span{ /*子菜单返回*/
 display:block;
 float:left;
 padding:0 0 0 5px;
@@ -514,75 +483,14 @@ font-size:16px;
 
 .tc { text-align: center; }
 
-#navs {
-  position: fixed;
-  right: 5px;
-  bottom: 5px;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  color: #000;
-  cursor: pointer;
-  z-index:999999;
-  font-size:30px;
-  font-weight:300;
-}
 
-#navs>li,
-#navs:after {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  background-color: #5cd1ea;
-}
-
-#navs>li {
-  transition: all .3s;
-  -webkit-transition: all .3s;
-  -moz-transition: .3s;
-}
-
-#navs:after {
-  content: attr(data-close);
-  z-index: 1;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-}
-
-#navs.active:after { content: attr(data-open); }
-
-#navs a {
-  width: 40px;
-  height: 40px;
-  display: inline-block;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  text-decoration: none;
-  color: #fff;
-  font-size: 0.8em;
-}
-#navs a img{
-	display:block;
-	width:50%;
-	text-align:center;
-	margin:auto;
-	padding:10px 0 0 0;
-}
 /*===============================================*/
 /* 7. PAGES LAYOUT GENERAL */
 /*===============================================*/	
-.homepage{
+.homepage{ /*主页页面*/
 background-color:#000;
 }
-#pages_maincontent{
+#pages_maincontent{ /*其他页面*/
 width:100%;
 padding:0 0 30px 0;
 margin:0px;
@@ -591,31 +499,31 @@ top: 70px;
 left: 0; 
 right: 0; 
 bottom: 0px;
-overflow: scroll; 
+overflow: scroll; /*内容溢出*/
 -webkit-overflow-scrolling: touch;
 }
-#pages_maincontent p{
+#pages_maincontent p{ /*其他页面内容*/
 padding:0 0 15px 0;
 margin:0px;
 clear:both;
 }
-#pages_maincontent img{
+#pages_maincontent img{ /*其他页面内容*/
 display:block;
 max-width:100%;
 }
 .layout_fullwidth{
 width:100%;
 }
-.layout_fullwidth_padding{
+.layout_fullwidth_padding{ /*页面主体内容部分*/
 width:90%;
 margin:0 5%;
 }
-.page_single ul.simple_list{
+.page_single ul.simple_list{ /*二级页面class特别提示*/
 padding:0px 0 20px 10px;
 margin:0px;
 list-style:none;
 }
-.page_single ul.simple_list li{
+.page_single ul.simple_list li{ /*二级页面class特别提示项*/
 margin:0 0 10px 0;
 padding:0 0 0 20px;
 background:url(../img/bullet.png) no-repeat left;
@@ -623,10 +531,18 @@ background:url(../img/bullet.png) no-repeat left;
 
 /* 7-1. SWIPE SLIDER */
 
-.swiper-container {
-height: 100%;
+.swiper-container { /*滑动翻图片*/
+height: 100%;/*元素高度*/
 }
-.swiper-container-pages {
+.swiper-container-pages { /*子页面轮播滑动图片*/
+height: auto;
+margin: 0 auto 20px auto;
+position: relative;
+overflow: hidden; /*内容会被修剪，并且其余内容是不可见的。*/
+/* Fix of Webkit flickering */
+z-index: 1;
+}
+.swiper-container-team { /*客服中心滑动容器*/
 height: auto;
 margin: 0 auto 20px auto;
 position: relative;
@@ -634,15 +550,7 @@ overflow: hidden;
 /* Fix of Webkit flickering */
 z-index: 1;
 }
-.swiper-container-team {
-height: auto;
-margin: 0 auto 20px auto;
-position: relative;
-overflow: hidden;
-/* Fix of Webkit flickering */
-z-index: 1;
-}
-.swiper-container-toolbar {
+.swiper-container-toolbar { /*底部导航滑动容器*/
 width:94%;
 padding:0 3%;
 height: auto;
@@ -655,32 +563,32 @@ z-index: 999999;
 height:60px;
 background:url(../img/trans_black.png) repeat;
 }
-.swiper-slide {
+.swiper-slide { /*单个滑动元件。里面可以包含任何HTML*/
 width:100%;
 text-align:left;
--webkit-background-size: 100%; 
+-webkit-background-size: 100%;  /*规定背景图像的尺寸。宽度*/
 -moz-background-size: 100%;
 -o-background-size: 100%;
 background-size: 100%;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover; 
-background-size: cover;
-background-position:center center;
+background-size: cover; /*把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。背景图像的某些部分也许无法显示在背景定位区域中。*/
+background-position:center center; /*定位背景图像*/
 }
-.toolbar-icon a{
+.toolbar-icon a{ /*底部导航图标a*/
 display:block;
 width:100%;
 height:40px;
 text-align:center;
 }
-.toolbar-icon a img{
+.toolbar-icon a img{ /*底部导航图标*/
 display:block;
 max-height:70%;
 margin:10px auto 0 auto;
 text-align:center;
 }
-.slider_trans{
+.slider_trans{ /*设置轮播图片*/
 position:absolute;
 top:0px;
 left:0px;
@@ -689,8 +597,7 @@ height:100%;
 z-index:9999;
 background:url(../img/trans_black.png) repeat;
 }
-.slider-caption{
-	/*首页轮播的标题与button*/
+.slider-caption{ /*首页轮播的标题与button*/
 /*width:90%;*/
 position:absolute;
 bottom:30%;
@@ -699,63 +606,56 @@ z-index:99999;
 padding:0 5%;
 /*text-align:center;*/
 }
-.slidertoolbar .slider-caption{
+.slidertoolbar .slider-caption{ /*首页轮播的标题位置*/
 bottom:30%;	
 }
-.slider-caption h2{
+.slider-caption h2{ /*首页轮播的标题*/
 width:100%;
 display:block;
 padding:0px;
 margin:0;
 font-size:75px;
 font-weight:900;
-letter-spacing:-1px;
+letter-spacing:-1px; /*字符间距*/
 color:#5cd1ea;
 line-height:85px;
 } 
-.slider-caption span.subtitle{
-width:100%;
-margin:0px 0 10px 0;
-font-size:22px;
-font-weight:700;
-color:#fff;
-display:block;
-} 
-.slider-caption p{
+
+.slider-caption p{ /*首页轮播的小字*/
 color:#ffffff;
 font-size:16px;
 }
-.swiper-container > .swiper-pagination {
+.swiper-container > .swiper-pagination { /*所有一代子B元素*/
 bottom: 5%;
 left: 5%;
 width: 95%;
 }
-.slidertoolbar > .swiper-pagination {
+.slidertoolbar > .swiper-pagination { /*所有一代子B元素*/
 bottom: 70px;
 left: 5%;
 width: 95%;
 }
-.swiper-container-pages > .swiper-pagination {
+.swiper-container-pages > .swiper-pagination {/*所有一代子B元素*/
 bottom: 5%;
 left: 5%;
 width: 95%;
 }
-.swiper-container .swiper-pagination-bullet-active {
+.swiper-container .swiper-pagination-bullet-active { /*滑动小点*/
 opacity: 1;
 background: #5cd1ea;
 }
-.swiper-container-pages .swiper-pagination-bullet-active {
+.swiper-container-pages .swiper-pagination-bullet-active { /*滑动小点*/
 opacity: 1;
 background: #5cd1ea;
 }
-.swiper-pagination-toolbar{
+.swiper-pagination-toolbar{ /*底部导航分页视图*/
 position: absolute;
 bottom: 0;
 left: 0;
 width: 100%;
 text-align:center;
 }
-.swiper-container-toolbar .swiper-pagination-bullet {
+.swiper-container-toolbar .swiper-pagination-bullet { /*底部导航滑动分页*/
   width: 4px;
   height: 4px;
   display: inline-block;
@@ -763,15 +663,15 @@ text-align:center;
   opacity: 0.2;
   margin:0 2px;
 }
-.swiper-container-toolbar .swiper-pagination-bullet-active {
+.swiper-container-toolbar .swiper-pagination-bullet-active { /*底部导航滑动分页*/
 opacity: 1;
 background: #000;
 }
-.swiper-pagination-team, .swiper-pagination-teambigger{
+.swiper-pagination-team, .swiper-pagination-teambigger{ /*客服中心滑动*/
 width: 100%;
 text-align:center;
 }
-.swiper-container-team .swiper-pagination-bullet {
+.swiper-container-team .swiper-pagination-bullet { /*客服中心滑动小点*/
   width: 4px;
   height: 4px;
   display: inline-block;
@@ -779,36 +679,38 @@ text-align:center;
   opacity: 0.2;
   margin:0 2px;
 }
-.swiper-container-team .swiper-pagination-bullet-active {
+.swiper-container-team .swiper-pagination-bullet-active { /*客服中心滑动小点*/
 opacity: 1;
 background: #000;
 }
-.swiper-button-next{
+.swiper-button-next{ /*下一页轮播图*/
 	background-image:url(../img/nav-next.png); 
 	width: 15px;
     height: 29px;
 	background-size: 15px 29px;	
+	z-index:99999
 }
-.swiper-button-prev{
+.swiper-button-prev{ /*上一页轮播图*/
 	background-image:url(../img/nav-prev.png); 
 	width: 15px;
     height: 29px;
 	background-size: 15px 29px;	
+	z-index:99999
 }
-a.swiper_read_more{
+a.swiper_read_more{ /*首页button及read more的button*/
 color:#ffffff;
 padding:10px 20px;
-text-decoration:none;
+text-decoration:none; /*文本修饰*/
 margin:10px 0 0 0;
 display:inline-block;
 font-size:14px;
 font-weight:400;
-background-color: #eb4a7b;/*首页button及read more的button*/
+background-color: #eb4a7b;
 }
 
 /* 7-2. FEATURED LISTS */
 
-ul.features_list{
+ul.features_list{ /*二级页面导航*/
 padding:0 0 20px 0;
 width:100%;
 margin:0px;
@@ -816,7 +718,7 @@ list-style:none;
 float:left;
 clear:both;
 }
-ul.features_list li{
+ul.features_list li{ /*二级页面导航项*/
 border-bottom:1px #e6e6e6 solid;
 padding:0 2% 20px 2%;
 margin:0 0 20px 0;
@@ -825,22 +727,22 @@ width:43%;
 float:left;
 font-size:18px;
 }
-ul.features_list li:nth-child(even){
+ul.features_list li:nth-child(even){ /*ul的偶数个子元素的每个 li */
 float:right;
 }
-ul.features_list li a{
+ul.features_list li a{ /*导航每个li的a */
 color:#000;
 padding:0px;
 margin:0px;
 }
-ul.features_list li img{
+ul.features_list li img{ /*导航每个li的icon */
 display:inline-block;
 width:10%;
 float:left;
 margin:0px;
 padding:0px;
 }
-ul.features_list li span{
+ul.features_list li span{ /*导航每个li的文字标题*/
 display:inline-block;
 max-width:90%;
 padding:2% 0 0 5%;
@@ -848,70 +750,27 @@ font-weight:400;
 float:left;
 }
 
-
-ul.features_list_detailed{
-padding:0 0 20px 0;
-width:100%;
-margin:0px;
-list-style:none;
-float:left;
-clear:both;
-}
-ul.features_list_detailed li{
-padding:20px 2%;
-margin:0;
-display:block;
-width:43%;
-float:left;
-border-bottom:1px #ddd solid;
-}
-ul.features_list_detailed li:nth-child(even){
-float:right;
-}
-ul.features_list_detailed li .feat_small_icon{
-width:10%;
-float:left;
-margin:2px 0 0 0;
-}
-ul.features_list_detailed li .feat_small_details{
-width:85%;
-float:left;
-padding:0 0 0 5%;
-}
-ul.features_list_detailed li .feat_small_details p{
-padding:0 0 10px 0;
-}
-ul.features_list_detailed li .feat_small_details a{
-color:#232323;
-}
-ul.features_list_detailed li .feat_small_details h4{
-font-weight:700;
-font-size:20px;
-padding:0 0 5px 0;
-margin:0px;
-}
-
 /* 7-3. TEAM DESIGN LAYOUT */
 
-.team-block{
+.team-block{ /*客服中心滑动项*/
 width:46%;
 background-color:#f7f7f7;
 text-align:center;
 padding:20px 0 0 0;
 }
-.team-block a img{
+.team-block a img{ /*客服中心滑动项*/
 display:block;
 width:50%;
 border-radius:50%;
 margin:auto;
 }
-.team-block strong{
+.team-block strong{ /*客服中心滑动项*/
 display:block;
 font-weight:700;
 font-size:15px;
 padding:10px 0;
 }
-.team-block span{
+.team-block span{ /*客服中心滑动项*/
 display:block;
 font-weight:300;
 font-size:14px;
@@ -919,89 +778,14 @@ letter-spacing:0.5px;
 background-color:#5cd1ea;
 padding:10px 0;
 }
-ul.team_socials{
-width:100%;
-text-align:center;
-padding:10px 0;
-margin:0px;
-list-style:none;
-}
-ul.team_socials li{
-width:15%;
-padding:0px;
-margin:0px;
-display:inline-block;
-}
-ul.team_socials li a img{
-display:block;
-max-width:100%;
-text-align:center;
-border-radius:0px;
-margin:auto;
-}
 
-/* 7-4. MUSIC LIST DESIGN LAYOUT */
-
-.audiojs{ 
-width:100%;
-margin:auto; 
-box-shadow:none;
-background-image:none;
-}
-.audiojs .scrubber{
-position: relative;
-float: left;
-width: 45%;
-}
-.audiojs .time {
-float: left;
-width:25%;
-height: 36px;
-line-height: 36px;
-margin:0px;
-}
-
-ul.music_list{
-padding:0 0 20px 0;
-width:100%;
-margin:0px;
-list-style:none;
-float:left;
-clear:both;
-}
-ul.music_list li{
-border-top:1px #e6e6e6 solid;
-background-color:#f8f8f8;
-padding:0 0 0 0;
-margin:0 0 10px 0;
-display:block;
-width:100%;
-float:left;
-font-size:18px;
-}
-ul.music_list li h4{
-font-size:14px;
-padding:0 0 0 10px;
-margin:0px;
-font-weight:300;
-line-height:40px;
-}
-ul.music_list li h4 span{
-font-weight:700;
-background-color:#5cd1ea;
-display:inline-block;
-padding:5px 10px;
-float:right;
-margin:0px;
-line-height:30px;
-}
 /*===============================================*/
 /* 8. POPUPS */
 /*===============================================*/	
-.popup{
-background-color:#FFFFFF;
+.popup{ /*弹出*/
+background-color:#FFFFFF; 
 }
-.popup h4{
+.popup h4{/*弹出*/
 color:#222222;
 font-size:22px;
 font-weight:700;
@@ -1009,7 +793,7 @@ text-align:center;
 padding:0 0 20px 0;
 margin:0px;
 }
-.popup h5{
+.popup h5{/*弹出*/
 color:#222222;
 font-size:14px;
 font-weight:300;
@@ -1017,42 +801,42 @@ text-align:center;
 padding:20px 0 10px 0;
 margin:0px;
 }
-.popup p{
+.popup p{/*弹出*/
 text-align:center;
 padding:0px 0 20px 0;
 margin:0px;
 font-size:14px;
 }
-.content-block {
+.content-block { /*登录内容块*/
 padding:75px 10% 0 10%;
 }
-ul.social_share{
+ul.social_share{ /*联系客服popup*/
 list-style:none;
 padding:10px 0 0 0;
 margin:0px;
 }
-ul.social_share li{
+ul.social_share li{/*联系客服popup*/
 width:32%;
 text-align:center;
 display:inline-block;
 padding:15px 0;
 margin:0px;
 }
-ul.social_share li img{
+ul.social_share li img{/*联系客服popup*/
 width:50%;
 display:block;
 margin:auto auto 10px auto;
 }
-ul.social_share li a{
+ul.social_share li a{/*联系客服popup*/
 color:#222222;
 font-size:12px;
 font-weight:900;
 }
 
-.close_popup_button{
+.close_popup_button{ /*关闭popup按钮*/
 display:block;
 }
-.close_popup_button a{
+.close_popup_button a{/*关闭popup按钮*/
 display:inline-block;
 width:60px;
 height:60px;
@@ -1063,7 +847,7 @@ position:absolute;
 top:10px;
 right:0px;
 }
-.close_popup_button a img{
+.close_popup_button a img{/*关闭popup按钮*/
 display:block;
 max-width:60%;
 margin:auto; 
@@ -1071,7 +855,7 @@ margin:auto;
 /*===============================================*/
 /* 9. SHOP LAYOUT */
 /*===============================================*/
-ul.shop_items{
+ul.shop_items{ /*商城列表*/
 padding:0;
 width:100%;
 margin:0px;
@@ -1079,7 +863,7 @@ list-style:none;
 float:left;
 clear:both;
 }
-ul.shop_items li{
+ul.shop_items li{ /*商城列表项*/
 padding:0 0 15px 0;
 margin:0 0 15px 0;
 display:block;
@@ -1089,18 +873,18 @@ clear:both;
 border-bottom:1px solid #e4e4e4;
 position:relative;
 }
-ul.shop_items li .shop_thumb{
+ul.shop_items li .shop_thumb{ /*商城列表项图*/
 width:30%;
 float:left;
 padding:0;
 margin:0;
 }
-ul.shop_items li .shop_thumb img{
+ul.shop_items li .shop_thumb img{ /*商城列表项图*/
 display:inline-block;
 max-width:100%;
 margin:0px;
 }
-.shop_item_details h3{
+.shop_item_details h3{ /*商城列表项内容*/
 font-weight:400;
 font-size:16px;
 padding:0;
@@ -1111,30 +895,30 @@ border-bottom:1px #ddd solid;
 padding:10px 0;
 margin:0 0 15px 0;
 }
-ul.shop_items li .shop_item_details h4{
+ul.shop_items li .shop_item_details h4{ /*商品详情内容*/
 font-weight:900;
 font-size:16px;
 padding:0;
 margin:0px;
 }
-ul.shop_items li .shop_item_details h4 a{
+ul.shop_items li .shop_item_details h4 a{ /*商品详情内容*/
 color:#2a3452;
 }
-ul.shop_items li .shop_item_details{
+ul.shop_items li .shop_item_details{ /*商品详情内容*/
 width:65%;
 float:left;
 padding:0 0 0 5%;
 }
-ul.shop_items li .shop_item_details p{
+ul.shop_items li .shop_item_details p{ /*商品详情内容*/
 padding:0 0 10px 0;
 margin:0px;
 }
-ul.shop_items li .shop_item_price{
+ul.shop_items li .shop_item_price{ /*商城列表项价格*/
 font-size:12px;
 font-weight:900;
 padding:5px 0 10px 0;
 }
-ul.shop_items li a#addtocart{
+ul.shop_items li a#addtocart{ /*添加到购物车*/
 width:50%;
 float:right;
 color:#222222;
@@ -1145,24 +929,24 @@ text-align:center;
 font-size:12px;
 font-weight:300;
 }
-ul.shop_items li a.shopfav{
+ul.shop_items li a.shopfav{ /*商城列表项联系客服icon*/
 position:absolute;
 top:15px;
 right:0px;
 z-index:9999;
 width:25px;
 }
-ul.shop_items li a.shopfav img{
+ul.shop_items li a.shopfav img{ /*商城列表项联系客服icon*/
 width:100%;
 display:block;
 }
-.shop_pagination{
+.shop_pagination{ /*商城列表分页*/
 width:100%;
 clear:both;
 margin:25px 0;
 float:left;
 }
-.shop_pagination a{
+.shop_pagination a{ /*商城列表分页上一页下一页*/
 display:block;
 padding:10px 0;
 text-align:center;
@@ -1170,26 +954,26 @@ width:40%;
 font-size:12px;
 font-weight:900;
 }
-.shop_pagination span.shop_pagenr{
+.shop_pagination span.shop_pagenr{ /*商城列表分页1/3*/
 width:18%;
 display:block;
 float:left;
 text-align:center;
 padding:10px 0;
 }
-a.prev_shop{
+a.prev_shop{ /*商城列表分页上一页*/
 float:left;
 }
-a.next_shop{
+a.next_shop{ /*商城列表分页下一页*/
 float:right;
 }
 
 /* 9-1. SHOP ITEM PAGE */
 
-.shop_item{
+.shop_item{ /*商品详情*/
 width:100%;
 }
-.shop_item h4{
+.shop_item h4{ /*商品详情*/
 width:100%;
 padding:5px 0;
 font-size:14px;
@@ -1197,13 +981,13 @@ margin:5px 0 20px 0;
 clear:both;
 font-weight:400;
 }
-.shop_item .shop_thumb{
+.shop_item .shop_thumb{ /*商品详情图*/
 width:100%;
 padding:0;
 margin:0;
 position:relative;
 }
-.shop_item a#addtocart{
+.shop_item a#addtocart{ /*商品详情添加到购物车*/
 width:100%;
 color:#fff;
 display:block;
@@ -1213,11 +997,11 @@ font-size:14px;
 font-weight:900;
 clear:both;
 }
-.shop_item .shop_item_details{
+.shop_item .shop_item_details{ /*商品详情内容*/
 width:100%;
 padding:0;
 }
-.shop_item .shop_item_price{
+.shop_item .shop_item_price{ /*商城列表项价格*/
 position:absolute;
 top:10px;
 right:10px;
@@ -1232,31 +1016,31 @@ text-align:center;
 padding:0;
 background-color:#5cd1ea;
 }
-.shop_item a.shopfav{
+.shop_item a.shopfav{ /*商品详情联系客服*/
 position:absolute;
 bottom:10px;
 right:20px;
 z-index:9999;
 width:10%;
 }
-.shop_item a.shopfriend{
+.shop_item a.shopfriend{ /*商品详情联系客服*/
 position:absolute;
 bottom:10px;
 right:25%;
 z-index:9999;
 width:10%;
 }
-.shop_item a.shopfav img, .shop_item a.shopfriend img{
+.shop_item a.shopfav img, .shop_item a.shopfriend img{ /*商品详情联系客服*/
 width:100%;
 display:block;
 }
-.size_selectors{
+.size_selectors{ /*商品详情产品挡位选择*/
 width:100%;
 margin:0 0 20px 0;
 float:left;
 display:block;
 }
-.size_selectors label {
+.size_selectors label { /*商品详情产品挡位选择*/
 display:inline-block;
 width:18%;
 float:left;
@@ -1266,180 +1050,23 @@ margin:0 1% 0 0;
 font-size:14px;
 text-align:center;
 }
-.size_selectors input[type=radio] {
+.size_selectors input[type=radio] { /*商品详情产品挡位选择*/
 display: none;
 }
-.size_selectors input[type=radio] + label {
+.size_selectors input[type=radio] + label { /*商品详情产品挡位选择*/
 display: block;
 border:1px #ebebeb solid;
 color:#375a70;
 }
-.size_selectors input[type=radio]:checked + label {
+.size_selectors input[type=radio]:checked + label { /*商品详情产品挡位选择，选中*/
 background-color:#5cd1ea;
 }
-.color_selectors{
-width:100%;
-margin:0 0 20px 0;
-float:left;
-display:block;
-}
-.color_selectors label {
-display:block;
-width:14%;
-height:25px;
-float:left;
-cursor: pointer;
-padding:0;
-margin:0 1% 0 0;
-}
-.color_selectors label.colorred{
-background-color:#ed434b;
-}
-.color_selectors label.colororange{
-background-color:#f2901d;
-}
-.color_selectors label.coloryellow{
-background-color:#e8d503;
-}
-.color_selectors label.colorgreen{
-background-color:#6fe803;
-}
-.color_selectors label.colorblue{
-background-color:#0394e8;
-}
-.color_selectors label.colormagenta{
-background-color:#b60cc5;
-}
-.color_selectors input[type=radio] {
-display: none;
-}
-.color_selectors input[type=radio] + label {
-border:2px #fff solid;
-}
-.color_selectors input[type=radio]:checked + label {
-background-image:url(../img/bullet.png);
-background-position:center center;
-background-repeat:no-repeat;
-}
 
-/* 9-2. SHOPPING CART - CECKOUT */
-
-.cart_item{
-width:100%;
-float:left;
-clear:both;
-border-bottom:1px #3d3e50 solid;
-padding:10px 0;
-margin:0 0 10px 0;
-}
-.item_thumb{
-width:30%;
-float:left;
-clear:both;
-}
-.item_thumb img{
-max-width:80%;
-display:block;
-}
-.item_title{
-width:80%;
-float:left;
-padding:5px 0 15px 0;
-}
-.item_title span{
-font-weight:900;
-}
-.item_price{
-width:20%;
-text-align:center;
-padding:5px 0;
-float:right;
-color:#222222;
-background-color:#5cd1ea;
-font-size:12px;
-font-weight:900;
-letter-spacing:0.5px;
-}
-a.item_delete{
-width:10%;
-float:right;
-text-align:right;
-padding:5% 0 0 0;
-}
-a.item_delete img{
-max-width:80%;
-display:block;
-}
-.item_qnty{
-width:50%;
-float:left;
-margin:0 0 10px 5%;
-border-right:1px #3d3e50 solid;
-}
-.item_qnty_shop{
-width:50%;
-float:left;
-margin:0;
-}
-.item_qnty_shopitem{
-width:50%;
-float:left;
-margin:0 0 20px 0;
-}
-.item_qnty label{
-width:60%;
-display:block;
-text-align:center;
-font-size:14px;
-padding:0 0 10px 0;
-}
-input.qntyminus, input.qntyplus, input.qntyminusshop, input.qntyplusshop{
-width:30px;
-float:left;
-background:none;
-border:none;
-height:30px;
-border-radius:15px;
-font-weight:400;
-font-size:20px;
-text-align:center;
-margin:0px;
-padding:0px 0 3px;
-cursor:pointer;
-line-height:5px;
--webkit-appearance: none;
-}
-input.qnty{
-width:20%;
-height:25px;
-float:left;
-margin:0 2%;
-padding:0px;
-color:#222222;
-background:none;
-border:none;
-text-align:center;
-font-size:18px;
--webkit-appearance: none;
-}
-input.qntyshop{
-width:20%;
-height:25px;
-float:left;
-margin:0 1%;
-padding:0px;
-color:#000;
-background:none;
-border:none;
-text-align:center;
-font-size:18px;
--webkit-appearance: none;
-}
-.shop_pagination a, input.qntyminus, input.qntyplus, input.qntyminusshop, input.qntyplusshop{
+.shop_pagination a{
 border: 1px solid #222222;
 color: #222222;
 }
-h4.checkout_title{
+h4.checkout_title{ /* viewclaim指引标题 */
 width:93%;
 margin:0 0 20px 0;
 padding:10px 0 10px 5%;
@@ -1450,7 +1077,7 @@ font-size:14px;
 font-weight:700;
 border-left:5px solid #5cd1ea;
 }
-.order_item{
+ .order_item{ /* view claim每一列 */
 width:100%;
 float:left;
 clear:both;
@@ -1467,15 +1094,15 @@ clear:both;
 max-width:80%;
 display:block;
 }
-.order_item_title{
+.order_item_title{ /* view claim每一列标题的内容 */
 width:60%;
 float:left;
 padding:5px 0 15px 0;
 }
-.order_item_title span{
+.order_item_title span{/* view claim每一列标题 */
 font-weight:900;
 }
-.order_item_price{
+.order_item_price{ /* view claim每一列内容，右边 */
 width:20%;
 text-align:center;
 padding:5px 0;
@@ -1494,7 +1121,7 @@ float:right;
 clear:both;
 padding:0 0 20px 0;
 }
-.carttotal_full{
+.carttotal_full{ /*viewcase理赔金额*/
 width:100%;
 float:left;
 clear:both;
@@ -1507,14 +1134,14 @@ clear:both;
 padding:5px 0;
 border-bottom:1px #3d3e50 solid;
 }
-.carttotal_row_full{
+.carttotal_row_full{ /*viewcase理赔金额结算每一列*/
 width:100%;
 float:left;
 clear:both;
 padding:8px 0;
 border-bottom:1px #d6d6d6 solid;
 }
-.carttotal_row_last{
+.carttotal_row_last{ /*viewcase理赔金额最后结算*/
 width:100%;
 float:left;
 clear:both;
@@ -1522,12 +1149,12 @@ padding:5px 0;
 font-size:17px;
 font-weight:900;
 }
-.carttotal_left{
+.carttotal_left{ /*viewcase理赔金额结算每一列标题*/
 width:60%;
 float:left;
 text-align:left;
 }
-.carttotal_right{
+.carttotal_right{ /*viewcase理赔金额结算每一列金额*/
 width:40%;
 float:left;
 text-align:right;
@@ -1550,7 +1177,7 @@ cursor:pointer;
 -webkit-appearance: none;
 }
 /* 9-3. SUCCESS PAGE */
-.success_message{
+.success_message{ /*提交成功*/
 width:100%;
 text-align:center;
 font-size:24px;
@@ -1558,130 +1185,27 @@ font-weight:300;
 color:#2d2e3e;
 padding:20px 0 0 0;
 }
-.success_message img{
+.success_message img{ /*提交成功*/
 text-align:center;
 display:inline-block;
 margin:20px auto;
 }
-.success_message span{
+.success_message span{ /*提交成功*/
 font-weight:900;
 font-size:40px;
 display:block;
 }
-.success_message p{
+.success_message p{/*提交成功*/
 line-height:35px;
-}
-/*===============================================*/
-/* 10. PHOTO GALLERY */
-/*===============================================*/
-.bottombarpages{
-position: absolute;
-bottom:0;
-left:0;
-width:100%;
-height:80px;
-text-align:center;
-z-index:999;
-background-color:#5cd1ea;
-}
-.switch_button{
-display:block;
-float:left;
-}
-.switch_button a{
-display:block;
-width:23px;
-height:23px;
-}
-.switch13{
-background:url(../img/switch_13.png) no-repeat center;
-}
-.switch12{
-background:url(../img/switch_12.png) no-repeat center;
-}
-.switch11{
-background:url(../img/switch_11.png) no-repeat center;
-}
-.gallery_switch{
-width:100%;
-text-align:center;
-padding:10px 0 0 0;
-}
-.gallery_switch a{
-display:inline-block;
-padding:0 5px;
-width:5%;
-}
-.gallery_switch a img{
-display:inline-block;
-max-width:70%;
-}
-ul.photo_gallery_13, ul.photo_gallery_12, ul.photo_gallery_11{
-width:90%; 
-list-style:none; 
-padding:0px; 
-margin:15px 5% 70px 5%;
-float:left; 
-clear:both;
-} 
-ul.photo_gallery_13 li{ 
-width:33.3%; 
-padding:0; 
-float:left; 
-margin:0; 
-}
-ul.photo_gallery_13 li img{ 
-max-width:100%; 
-display:block; 
-}
-ul.photo_gallery_12 li{ 
-width:50%; 
-padding:0; 
-float:left;  
-margin:0;
-}
-ul.photo_gallery_12 li img{ 
-max-width:100%; 
-display:block;
-}
-ul.photo_gallery_11 li{ 
-width:100%; 
-padding:0; 
-float:left; 
-margin:0;
-}
-ul.photo_gallery_11 li img{
-max-width:100%; 
-display:block;
-} 
-.photo-categories{
-width:90%;
-padding:0;
-font-size:14px;
-font-weight:400;
-margin:0 5% 0 5%;
-display:block;
-}
-.photo-categories a{
-width:32%;
-margin:0 1% 0 0;
-display:block;
-float:left;
-text-align:center;
-padding:10px 0;
-color:#2d2e3e;
-}
-.photo-categories a.active{
-background-color:#5cd1ea;
 }
 
 /*===============================================*/
 /* 11. BLOG LAYOUT */
 /*===============================================*/	
-.list-block {
+.list-block { /*class手风琴菜单*/
 margin:0px 0;
 }
-.list-block ul::before {
+.list-block ul::before { /*class手风琴菜单，伪元素，在元素内容ul的最前面添加新内容。*/
 content: '';
 position: absolute;
 left: 0;
@@ -1692,31 +1216,31 @@ height: 1px;
 width: 100%;
 background-color: #fff;
 }
-.list-block ul::after {
+.list-block ul::after { /*class手风琴菜单，伪元素，在元素内容ul的最后面添加新内容。*/
 background-color: #fff;
 }
-.list-block li{
+.list-block li{  /*class手风琴菜单，每一项内容*/
 border-bottom:1px #f0f0f0 solid;
 margin:0;
 }
-.list-block .item-content {
+.list-block .item-content { /*class手风琴菜单，每一项内容，点击*/
 padding-left:0px;
 padding-top:10px;
 }
 .list-block .swipeout-actions-left a,
-.list-block .swipeout-actions-right a {
+.list-block .swipeout-actions-right a { /*向左/右滑动的按钮和链接的容器*/
 padding:0 10px;
 margin:0 0 0 0px;
 color: #000;
 text-align:center;
 }
-.list-block .swipeout-actions-right a:nth-child(1){
+.list-block .swipeout-actions-right a:nth-child(1){ /*向右滑动的按钮和链接的容器第一个a*/
 background:#5cd1ea;
 }
-.list-block .swipeout-actions-right a:nth-child(2){
+.list-block .swipeout-actions-right a:nth-child(2){ /*向右滑动的按钮和链接的容器第二个a*/
 background:#efe907;
 }
-.list-block .swipeout-actions-right a:nth-child(3){
+.list-block .swipeout-actions-right a:nth-child(3){ /*向右滑动的按钮和链接的容器第三个a*/
 background:#e3de0f;
 }
 #pages_maincontent .list-block .swipeout-actions-left a img,
@@ -1725,34 +1249,34 @@ display:inline-block;
 width: 40%;
 margin:auto;
 }
-.post_thumb{
+.post_thumb{ /*资讯列表图片*/
 width:25%;
 float:left;
 }
-.post_thumb img{
+.post_thumb img{  /*资讯列表图片*/
 display:inline-block;
 max-width:100%;
 }
-.post_details{
+.post_details{ /*资讯列表信息*/
 width:62%;
 float:left;
 margin:0 0 0 4%;
 }
-.post_details h2{
+.post_details h2{ /*资讯列表来源信息*/
 font-size:14px;
 line-height:20px;
 font-weight:400;
 margin:10px 0 10px 0;
 padding:0px;
 }
-.post_category a{
+.post_category a{ /*资讯列表信息标题*/
 font-size:15px;
 background-color:#5cd1ea;
 padding:0 10px;
 display:inline-block;
 }
 
-.post_swipe{
+.post_swipe{ /*资讯列表滑动菜单icon*/
 width:6%;
 height:100%;
 position:absolute;
@@ -1760,52 +1284,33 @@ right:0px;
 top:0px;
 background-color:#f7f7f7;
 }
-.post_swipe img{
+.post_swipe img{ /*资讯列表滑动菜单icon*/
 position: relative;
 top: 50%;
 transform: translateY(-50%);
 margin:auto;
 }
-.post_details span, .post_single span{
+.post_details span, .post_single span{ /*资讯详情内容*/
 display:inline-block;
 padding:0 5px;
 }
 
-.post_single span.post_date{
+.post_single span.post_date{ /*资讯详情日期内容*/
 background:url(../img/date.png) no-repeat left;
 padding:10px 0 5px 25px;
 margin:0 0 0 0;
 }
-.post_single span.post_author{
+.post_single span.post_author{ /*资讯详情来源内容*/
 background:url(../img/author.png) no-repeat left;
 padding:10px 0 5px 25px;
 margin:0 0 0 10px;
 }
-.post_single span.post_comments{
+.post_single span.post_comments{ /*资讯详情评论数*/
 background:url(../img/comments.png) no-repeat left;
 padding:10px 0 5px 23px;
 margin:0 0 0 10px;
 }
-#loadMore{
-display:block;
-width:100%;
-margin:10px 0;
-padding:10px 0;
-text-align:center;
-background-color:#5cd1ea;
-color:#000000;
-font-size:20px;
-}
-#showLess{
-display:none;
-width:100%;
-margin:10px 0;
-padding:10px 0;
-text-align:center;
-background-color:#f7f7f7;
-color:#ddd;
-font-size:20px;
-}
+
 .post_single{
 border-bottom:1px #f0f0f0 solid;
 padding:10px 0 10px 0;
@@ -1816,12 +1321,12 @@ display:block;
 max-width:100%;
 margin:0 0 20px 0;
 }
-a.backto{
+a.backto{ /*返回icon*/
 width:10%;
 float:left;
 margin:10px 0 0 5%;
 }
-a.backto img{
+a.backto img{/*返回icon*/
 width:70%;
 display:block;
 }
@@ -1864,11 +1369,11 @@ font-style:italic;
 /* 12. FORMS */
 /*===============================================*/	
 /* 12.1 LOGIN FORM */
-.loginform{
+.loginform{ /*登录*/
 width:90%;
 padding:0 0 15px 5%;
 }
-.loginform label.error{
+.loginform label.error{ /*错误提示信息*/
 padding:0 0 20px 0; 
 margin:0px;
 line-height:10px;
@@ -1877,25 +1382,25 @@ text-align:left;
 font-size:14px;
 color:#f65821;
 font-weight:400;
-clear:both;
+clear:both; /*图像的左侧和右侧均不允许出现浮动元素*/
 float:left;
 }
-.loginform input.form_input{
+.loginform input.form_input{ /*每一个input*/
 padding:10px 3%; 
 width:93%; 
 margin:0 0 15px 0;
-border-bottom:1px solid #d5d5d5;
+border-bottom:1px solid #d5d5d5; /*分割线*/
 border-left:none;
 border-right:none;
 border-top:none;
 background-color:#ffffff;
 color:#000000;
--webkit-appearance: none;
+-webkit-appearance: none; /*使元素看上去像标准的用户界面元素*/
 }
-.loginform input.form_input:focus{
+.loginform input.form_input:focus{ /*伪类将应用于拥有键盘输入焦点的元素。*/
  background-color:#f5f5f5;
 }
-.loginform .form_select{
+.loginform .form_select{ /*每一个select*/
 padding:2% 3%; 
 width:100%; 
 margin:20px 0 10px 0;
@@ -1907,15 +1412,15 @@ border-top:none;
 color:#000000;
 background:url(../img/dropdown.png) no-repeat right;
 }
-.loginform .form_select option{
+.loginform .form_select option{ 
 padding:3px;
 }
-.loginform input.form_submit{ 
+.loginform input.form_submit{ /*登录/注册按钮*/
 width:100%;
 padding:12px 0; 
 margin:10px 0 0 0; 
 text-align:center;
-cursor:pointer; 
+cursor:pointer; /*要显示的光标的类型（形状）：一只手*/
 font-size:18px;
 font-weight:300;
 color:#222222;
@@ -1924,26 +1429,18 @@ cursor:pointer;
 -webkit-appearance: none;
  background-color:#5cd1ea;
 }
-.forgot_pass{
-width:100%;
-text-align:right;
-font-size:12px;
-}
-.forgot_pass a{
-font-weight:700;
-color:#7cbe55;
-}
-.signup_bottom{
+
+.signup_bottom{/*没有帐户？注册按钮*/
 width:100%;
 text-align:center;
 padding:30px 0 0 0;
 }
-.signup_bottom p{
+.signup_bottom p{ /*没有帐户？*/
 opacity: 1;
 padding:0px 0 10px 0;
 font-size:16px;
 }
-.signup_bottom a{
+.signup_bottom a{ /*进入注册按钮*/
 background-color:#7cbe55;
 color:#fff;
 font-weight:300;
@@ -1951,45 +1448,22 @@ font-size:16px;
 padding:5px 10px;
 border-radius:15px;
 }
-.signup_social{
-width:100%;
-text-align:center;
-padding:20px 0 0 0;
-}
-a.signup_facebook{
-background-color:#38579a;
-width:47%;
-display:inline-block;
-padding:12px 0;
-margin:0 4% 0 0;
-color:#FFFFFF;
-font-size:12px;
-font-weight:700;
-}
-a.signup_twitter{
-background-color:#0cacea;
-width:47%;
-padding:12px 0;
-display:inline-block;
-color:#FFFFFF;
-font-size:12px;
-font-weight:700;
-}
 
-/* 12.2 CONTACT FORM */
 
-.contactform{
+/* 12.2 CLAIM FORM */
+
+.contactform{  /*发起理赔表单*/
 width:100%;
 padding:0 0 15px 0;
 }
-.contactform label{
+.contactform label{ /*发起理赔表单-label名*/
 width:100%;
 padding:5px 0 3px 0; 
 display:block; 
 font-size:16px;
 font-weight:700;
 }
-.contactform label.error{
+.contactform label.error{ /*发起理赔表单-错误信息*/
 padding:0 0 10px 0; 
 width:100%; 
 text-align:left; 
@@ -1997,37 +1471,19 @@ font-size:14px;
 color:#f65821;
 font-weight:400;
 }
-.contactform input.form_input{
+.contactform input.form_input{ /*发起理赔表单-input field*/
 padding:3%; 
 width:93%; 
 margin:0 0 5px 0;
 border:1px solid #ddd;
 }
-.contactform select.form_select{
+.contactform select.form_select{ /*发起理赔表单-select field*/
 padding:3%; 
 width:100%; 
 margin:0 0 5px 0;
 border:1px solid #ddd;
 }
-.contactform .item-content{
-padding:5px 0 5px 0;
-margin:0px;
-}
-.contactform .form_row_right{
-margin:0 0 20px 15%;
-padding:0 0 10px 0;
-border-bottom:1px solid #d6d6d6;
-}
-.contactform label .item-media{
-display:inline-block;
-}
-.contactform label .item-inner{
-display:inline-block;
-}
-.contactform label.label-switch{
-display:inline-block;
-width:auto;
-}
+
 .contactform textarea.form_textarea{
 padding:3%; 
 width:93%; 
@@ -2035,7 +1491,8 @@ height:50px;
 margin:0 0 5px 0;
 border:1px solid #ddd;
 }
-.contactform input.form_submit{ 
+
+.contactform input.form_submit{  /*发起理赔表单-submit按钮*/
 width:100%;
 padding:4% 0 4% 0; 
 margin:10px 0 0 0; 
@@ -2048,14 +1505,14 @@ color:#222222;
 border: none;
 cursor:pointer;
 }
-h2#Note{
+h2#Note{ /*我要留言页*/
 	display:none;
 }
 
 /*===============================================*/
 /* 13. TABS & ACCORDION & TABLES */
 /*===============================================*/	
-.tabs-animated-wrap, .tabs-simple{
+.tabs-animated-wrap, .tabs-simple{ /*标签容器。对标签页切换加上简单的动画过渡的容器*/
 position: relative;
 width: 100%;
 overflow: hidden;
@@ -2067,149 +1524,41 @@ padding:0 0 10px 0;
 margin:0px;
 font-size:16px;
 }
-.custom-accordion{
-padding:0;
-}
-.custom-accordion .accordion-item-toggle{
-padding:0px 0px;
-height:44px;
-line-height:44px;
-font-size:17px;
-cursor:pointer;
-}
-.custom-accordion .accordion-item-toggle:active{
-background:rgba(0,0,0,0.15);
-}
-.custom-accordion .accordion-item-toggle span{
-display:inline-block;
-margin-left:15px;
-}
-.custom-accordion .icon-plus,.custom-accordion .icon-minus{
-display:inline-block;
-width:22px;
-height:22px;
-border:1px solid #000;
-border-radius:100%;
-line-height:20px;
-text-align:center;
-}
-.custom-accordion .icon-minus{
-display:none;
-}
-.custom-accordion .accordion-item-expanded .icon-minus{
-display:inline-block;
-}
-.custom-accordion .accordion-item-expanded .icon-plus{
-display:none;
-}
-.custom-accordion .accordion-item-content{
-padding:0px 15px;
-}
 
-/* TABLES */
-ul.responsive_table{ 
-width:100%; 
-float:left; 
-clear:both; 
-margin:0 0 10px 0; 
-padding:0px; 
-list-style:none;
-}
-li.table_row{
-width:100%; 
-float:left; 
-clear:both; 
-line-height:30px;
-padding:0px; 
-list-style:none;
-margin:0 0 1px 0;
-background-color:#f5f5f4;
-}
-.table_section_small{
-width:14%; 
-float:left; 
-padding:0 0 0 2%;
-}
-.table_section{ 
-width:40%; 
-float:left;
-padding:0 0 0 2%;
-}
-.table_section_14{ 
-width:23%; 
-float:left;
-padding:0 0 0 2%;
-text-align:center;
-display:block;
-}
-.table_section_14 img{
-display:inline-block;
-text-align:center;
-padding:10px 0 0 0;
-margin:0px;
-line-height:10px;
-}
-.table_section_14 strong{
-font-size:18px;
-}
-.table_section_14 a.buy_now{
-display:inline-block;
-text-align:center;
-padding:0 5px;
-margin:5px 0;
-background-color:#94cb01;
-color:#FFFFFF;
-font-size:12px;
--moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;
-}  
-ul.responsive_table li:first-child{
-background-color:#5cd1ea;
-color:#222222;
-}
 /*===============================================*/
 /* 14. MEDIA QUERIES */
 /*===============================================*/	
 /* -------------SMALL DESKTOP--------- */
 @media screen and (max-width: 1200px) {
-.logo_image a img{ 
+.logo_image a img{ /*small desktop顶部栏logo*/
 max-width:100%;
 padding:15px 0 0 0;
-}
-.bottombarpages{
-height:70px;
-}
-.gallery_switch a{
-width:8%;
-padding:0px;
-}
-.gallery_switch a img{
-max-width:60%;
 }
 }
 /* -------------TABLET PORTRAIT--------- */
 @media screen and (max-width: 780px) {
-.navbarpages{
+.navbarpages{ /*平板电脑端顶部栏*/
 height:60px;
 }
-.logo_image a img{ 
+.logo_image a img{ /*tablet顶部栏logo*/
 max-width:100%;
 padding:15px 0 0 0;
 }
 .navbar_center{
 width:80%;
 }
-#pages_maincontent{
+#pages_maincontent{  /*tablet其他页面内容*/
 top: 60px; 
 }
-.navbar_right, .navbar_left{
+.navbar_right, .navbar_left{ /*tablet端的菜单及个人中心icon*/
 width:60px;
 height:60px;
 }
-.slider-caption h2{
+.slider-caption h2{ /*tablet首页轮播的标题*/
 font-size:55px;
 line-height:65px;
 } 
-.slider-caption span.subtitle{
+.slider-caption span.subtitle{ /*首页轮播的次标题-废弃*/
 font-size:18px;
 }
 blockquote{
@@ -2220,41 +1569,25 @@ blockquote span{
 font-size:14px;
 line-height:22px;
 } 
-ul.features_list li{
+ul.features_list li{ /*tablet二级页面导航*/
 width:96%;
 clear:both;
 font-size:14px;
 padding:0 2% 15px 2%;
 margin:0 0 15px 0;
 }
-ul.features_list li:nth-child(even){
+ul.features_list li:nth-child(even){ /*tablet ul的偶数个li*/
 float:left;
 }
-ul.features_list li span{
+ul.features_list li span{ /*tablet二级页面导航文字*/
 padding:2% 0 0 5%;
 font-weight:700;
 }
-ul.features_list_detailed li{
-width:96%;
-clear:both;
-padding:10px 2%;
-}
-ul.features_list_detailed li .feat_small_details h4{
-font-size:16px;
-}
-a.button_full{
+
+a.button_full{ /*tablet通用大按钮*/
 padding:10px 0;
 }
-.bottombarpages{
-height:60px;
-}
-.gallery_switch a{
-width:8%;
-padding:0px;
-}
-.gallery_switch a img{
-max-width:60%;
-}
+
 }
 /* -----------------MOBILE---------------- */
 @media screen and (max-width: 680px) {
@@ -2262,45 +1595,45 @@ max-width:60%;
 height: 100%;
 }
 /* 5.1 TOP NAVIGATION AND HEADER */
-.navbarpages{
+.navbarpages{ /*手机端顶部栏*/
 height:50px;
 }
 .logo_text{ 
 font-size:22px;
 line-height:50px;
 }
-.toolbar-icon a img{
+.toolbar-icon a img{ /*手机模式底部导航图标*/
 margin:20% auto 0 auto;
 }
 .navbar_center{
 width:77%;
 }
 /* HEADER RIGHT */	
-.navbar_right, .navbar_left{
+.navbar_right, .navbar_left{ /*手机端的icon*/
 width:55px;
 height:50px;
 }
-.navbar_right img, .navbar_left img{
+.navbar_right img, .navbar_left img{ /*手机端的icon图*/
 max-width:40%;
 padding:12px 0 0 0;
 }
-#pages_maincontent{
+#pages_maincontent{ /*mobile其他页面内容*/
 top: 50px; 
 }
-.slider-caption{
+.slider-caption{ /*mobile首页轮播的标题*/
 bottom:20%;
 }
-.slider-caption h2{
+.slider-caption h2{ /*mobile首页轮播的标题*/
 font-size:32px;
 line-height:35px;
 } 
-.slider-caption span.subtitle{
+.slider-caption span.subtitle{ /*mobile首页轮播的次标题-废弃*/
 font-size:16px;
 } 
-.slider-caption p{
+.slider-caption p{ /*mobile首页轮播的小字*/
 font-size:14px;
 }
-/* PANEL RIGHT AND LEFT */
+/* PANEL RIGHT AND LEFT 设置左右展开面板 */
 .panel {
 width: 85%;
 }
@@ -2316,12 +1649,12 @@ width: 85%;
 .panel.panel-right.panel-reveal {
   right: -85%;
 }
-body.with-panel-left-reveal .views {
+body.with-panel-left-reveal .views { /**打开面板，body会生成的类with-panel-left-reveal（显示；覆盖为：cover），来确定面板已经打开*/
   -webkit-transform: translate3d(85%, 0, 0);
   transform: translate3d(85%, 0, 0);
 }
-body.with-panel-left-reveal .panel-overlay {
-  margin-left: 85%;
+body.with-panel-left-reveal .panel-overlay { /**左边打开时覆盖*/
+  margin-left: 85%; /**向右覆盖85%*/
 }
 body.with-panel-left-cover .panel-left {
   -webkit-transform: translate3d(85%, 0, 0);
@@ -2331,32 +1664,23 @@ body.with-panel-right-reveal .views {
   -webkit-transform: translate3d(-85%, 0, 0);
   transform: translate3d(-85%, 0, 0);
 }
-body.with-panel-right-reveal .panel-overlay {
-  margin-left: -85%;
+body.with-panel-right-reveal .panel-overlay { /**右边打开时覆盖*/
+  margin-left: -85%; /**向左覆盖85%*/
 }
 body.with-panel-right-cover .panel-right {
   -webkit-transform: translate3d(-85%, 0, 0);
   transform: translate3d(-85%, 0, 0);
 }
-h2.page_title{
+h2.page_title{ /*手机端子页面标题*/
 font-size:16px;
 line-height:25px;
 font-weight:400;
 padding:5px 0;
 }
-.content-block {
+.content-block { /*手机端登录内容块*/
 padding:25px 5%;
 }
-.bottombarpages{
-height:50px;
-}
-.gallery_switch a{
-width:10%;
-padding:0px;
-}
-.gallery_switch a img{
-max-width:60%;
-}
+
 }
 @media screen and (max-width: 530px) {
 .navbar_center{
@@ -2368,38 +1692,17 @@ width:72%;
 .navbar_center{
 width:65%;
 }
-.logo_image a img{ 
+.logo_image a img{ /*手机端顶部栏logo*/
 display:inline-block;
 max-width:80%;
 padding:5px 0 0 0;
 }	
-.gallery_switch a{
-width:8%;
-padding:0px 5px;
-}
-.gallery_switch a img{
-max-width:100%;
-}
+
 }
 /* -----------------SMALLER MOBILE---------------- */
 @media screen and (max-width: 360px) {	
 .navbar_center{
 width:63%;
 }
-.gallery_switch a{
-width:10%;
-padding:0px 3px;
-}
-}
 
-.qa-list-icon img{
-width:10%;
-float:left;
-margin:2px 0 0 0;
-}
-.qa-list-title h4{
-font-weight:700;
-font-size:20px;
-padding:0 0 5px 0;
-margin:0px;	
 }

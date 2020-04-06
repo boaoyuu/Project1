@@ -2,7 +2,7 @@
 	<meta charset="UTF-8">
 </head>
 <div class="pages">
-	<div data-page="about" class="page no-toolbar no-navbar">
+	<div data-page="myclaim" class="page no-toolbar no-navbar"> <!-- data-page属性存储了一个唯一的page名 -->
 		<div class="page-content">
     
 			<div class="navbarpages graybg">
@@ -24,93 +24,88 @@
 			  
 				<div class="page_single layout_fullwidth_padding">	
 	  
-					<div class="buttons-row">
-						<a href="#tab1" class="tab-link active button">进行中</a>
-						<a href="#tab2" class="tab-link button">已完成</a>
+					<div class="buttons-row"> <!-- 切换选项卡 -->
+						<a href="#tab1" class="tab-link active button">理赔中</a> <!-- 在"buttons-row"中每个button的宽度是相同的,active点击状态 -->
+						<a href="#tab2" class="tab-link button">已结束</a>
 					</div>
           
-					<div class="tabs-animated-wrap">
-						<div class="tabs">
-							<div id="tab1" class="tab active">
+					<div class="tabs-animated-wrap"> <!-- 对标签页切换加上简单的动画过渡的容器 -->
+						<div class="tabs"> <!-- Tabs容器, 需要带有"tabs"类。所有标签的容器，必需元素 -->
+							<div id="tab1" class="tab active">  <!-- 单个的标签页第一个tab, 需要带有"tab"类和唯一的id --><!-- 第一个tab默认是激活显示状态，通过添加"active"类实现 -->
 							
-							<ul class="comments">
-									<li class="comment_row">
-										<div class="comm_avatar"><img src="../img/icons/black/form.png" alt="" title="" border="0" /></div>
-										<div class="comm_content">
-											<p style="margin-left:25px;line-height:2"><strong>理赔进度：</strong>人工审核<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
-										</div>
-									</li>
-									<li class="comment_row">
-										<div class="comm_avatar"><img src="../img/icons/black/form.png" alt="" title="" border="0" /></div>
-										<div class="comm_content">
-											<p style="margin-left:25px;line-height:2"><strong>理赔进度：</strong>材料审核<br></p>											
-											<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
-										</div>
-									</li>
-									<li class="comment_row">
-										<div class="comm_avatar"><img src="../img/icons/black/form.png" alt="" title="" border="0" /></div>
-										<div class="comm_content">
-											<p style="margin-left:25px;line-height:2"><strong>理赔进度：</strong>自动审核<br></p>									
-											<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
-											<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
-										</div>
-									</li>
-									
-									<div class="clear"></div>
-								</ul>
-								
-								
-							</div>
-
-							<div id="tab2" class="tab">
-							
-							<div class="card">
-									<div class="card-header">已完成</div>
-									<div class="card-content card-content-padding">
+							<div class="card"> <!-- 卡片容器 -->
+							    <div class="card-header">理赔中</div> <!-- 卡头。主要用于显示卡标题。可选的 -->
+							    <div class="card-content"> <!-- 卡内容的主容器。需要 -->
+							        <div class="card-content-inner graybg"> <!-- 额外的内包装。用于为卡片内容添加其他填充。可选的 -->
 									<a href="html/viewclaim.html"> 
 										<br>
 										<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
 										<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
 										<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>赔付金：</strong>2488.00<br></p>
 										<br>
-									</a>
-									</div>
-									<div class="card-footer">2019/08/01</div>
-								</div>
+									</a>							        
+							        </div>
+							    </div>
+							    <div class="card-footer">发起日：2019/08/01</div>  <!-- 卡页脚用于其他信息或自定义操作/链接。可选的 -->
+							</div> 
+	
 								
-								<div class="card">
-									<div class="card-header">已完成</div>
-									<div class="card-content card-content-padding">
-										<br>
-										<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>赔付金：</strong>864.00<br></p>
-										<br>
-									</div>
-									<div class="card-footer">2019/08/01</div>
-								</div>
 								
-								<div class="card">
-									<div class="card-header">已完成</div>
-									<div class="card-content card-content-padding">
-										<br>
-										<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
-										<p style="margin-left:25px;line-height:2"><strong>赔付金：</strong>1398.00<br></p>
-										<br>
-									</div>
-									<div class="card-footer">2019/08/01</div>
-								</div>
+							</div>
+
+							<div id="tab2" class="tab"> <!-- 第二个tab, 需要带有"tab"类和唯一的id -->
 							
+							<div class="card"> <!-- 卡片容器 -->
+							    <div class="card-header">已完成</div> <!-- 卡头。主要用于显示卡标题。可选的 -->
+							    <div class="card-content"> <!-- 卡内容的主容器。需要 -->
+							        <div class="card-content-inner graybg"> <!-- 额外的内包装。用于为卡片内容添加其他填充。可选的 -->
+									<a href="html/viewcase.html"> 
+										<br>
+										<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>赔付金额：</strong>20,000.00<br></p>
+										<br>
+									</a>							        
+							        </div>
+							    </div>
+							    <div class="card-footer">结束日：2019/08/01</div>  <!-- 卡页脚用于其他信息或自定义操作/链接。可选的 -->
+							</div> 							
+							
+							<div class="card"> <!-- 卡片容器 -->
+							    <div class="card-header">已完成</div> <!-- 卡头。主要用于显示卡标题。可选的 -->
+							    <div class="card-content"> <!-- 卡内容的主容器。需要 -->
+							        <div class="card-content-inner graybg"> <!-- 额外的内包装。用于为卡片内容添加其他填充。可选的 -->
+									<a href="html/viewcase.html"> 
+										<br>
+										<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>赔付金额：</strong>20,000.00<br></p>
+										<br>
+									</a>							        
+							        </div>
+							    </div>
+							    <div class="card-footer">结束日：2019/08/01</div>  <!-- 卡页脚用于其他信息或自定义操作/链接。可选的 -->
+							</div> 	
+														
+							<div class="card"> <!-- 卡片容器 -->
+							    <div class="card-header">已完成</div> <!-- 卡头。主要用于显示卡标题。可选的 -->
+							    <div class="card-content"> <!-- 卡内容的主容器。需要 -->
+							        <div class="card-content-inner graybg"> <!-- 额外的内包装。用于为卡片内容添加其他填充。可选的 -->
+									<a href="html/viewcase.html"> 
+										<br>
+										<p style="margin-left:25px;line-height:2"><strong>理赔号码：</strong>011234<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>被保人：</strong>陈先生<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>理赔类型：</strong>住院<br></p>
+										<p style="margin-left:25px;line-height:2"><strong>赔付金额：</strong>20,000.00<br></p>
+										<br>
+									</a>							        
+							        </div>
+							    </div>
+							    <div class="card-footer">结束日：2019/08/01</div>  <!-- 卡页脚用于其他信息或自定义操作/链接。可选的 -->
+							</div> 	
+
 							</div> 
 						</div>
 					</div>

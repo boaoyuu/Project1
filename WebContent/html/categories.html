@@ -1,20 +1,16 @@
 <head>
 	<meta charset="utf-8"/>
 	</head>
-<div class="pages">
-	<div data-page="subnav" class="page pagepanel">
-		<div class="page-content">
+<div class="pages"> <!-- 是单个视图view中页面的包装容器。这是必需的，因为所有页面转换都在这里发生。 -->
+	<div data-page="subnav" class="page pagepanel"> <!-- data-page属性存储了一个唯一的page名，可以用来帮助我们确定加载的是哪一个页面。 -->
+		<div class="page-content"> <!-- 所有的可见的内容，比如列表和表单等，都应该放在 <div class="page-content"> 中，她是 <div class="page">的子元素。这样才能保证正确的样式，布局和滚动。 -->
 			<div class="subnav_header"><a href="../index.html"><img src="../img/icons/black/back.png" alt="" title="" /><span>back</span></a></div>
 			<nav class="main-nav icons_31">
 				<ul>
 
-					<li><a href="html/helpcenter.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/help.png" alt="" title="" /><span>帮助首页</span></a></li>
-					<li><a href="html/commonqa.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/common.png" alt="" title="" /><span>常见问题</span></a></li>
-					<li><a href="html/claimprocess.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/electronics.png" alt="" title="" /><span>理赔流程</span></a></li>
-					<li><a href="html/medical-procedure.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/guide.png" alt="" title="" /><span>就医流程</span></a></li>
-					<li><a href="html/team.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/users.png" alt="" title="" /><span>客服中心</span></a></li>
+					<li><a href="html/claimnow.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/electronics.png" alt="" title="" /><span>发起理赔</span></a></li>
+					<li><a href="html/myclaim.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/features.png" alt="" title="" /><span>我的保单</span></a></li>
 					
- 					<li><a href="www.baidu.com" class="close-panel" data-view=".view-main"><img src="../img/icons/black/search.png" alt="" title="" /><span>外部搜索</span></a></li>
 					
 				</ul>
 			</nav>

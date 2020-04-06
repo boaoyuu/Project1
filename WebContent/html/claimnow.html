@@ -1,18 +1,130 @@
 <head>
 	<meta charset="utf-8"/>
-	</head>
-<div class="pages">
-	<div data-page="subnav" class="page pagepanel">
+</head>
+<div class="pages"> <!-- data-page属性存储了一个唯一的page名，可以用来帮助我们确定加载的是哪一个页面。 -->
+	<div data-page="claimnow" class="page no-toolbar no-navbar"> <!-- 隐藏工具栏；隐藏导航栏 -->
 		<div class="page-content">
-			<div class="subnav_header"><a href="../index.html"><img src="../img/icons/black/back.png" alt="" title="" /><span>back</span></a></div>
-			<nav class="main-nav icons_31">
-				<ul>
+    
+			<div class="navbarpages graybg"> <!-- 顶部工具栏 -->
+				<div class="navbar_left">
+					<div class="logo_image"><a href="index.html"><img src="../img/logo_image_dark.png" alt="" title=""/></div>
+				</div>			
+				<a href="#" data-panel="left" class="open-panel">
+					<div class="navbar_right"><img src="../img/icons/black/menu.png" alt="" title="" /></div>
+				</a>
+				<a href="#" data-panel="right" class="open-panel">
+					<div class="navbar_right whitebg"><img src="../img/icons/black/user.png" alt="" title="" /></div>
+				</a>					
+			</div>
+	
+			<div id="pages_maincontent"> <!-- 其他页面 -->
+     
+				<h2 class="page_title"><strong>发起理赔-信息收集</strong></h2> 
+     
+				<div class="page_single layout_fullwidth_padding">
 
-					<li><a href="html/claimformyself.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/user.png" alt="" title="" /><span>为自己理赔</span></a></li>
-					<li><a href="html/claimforothers.html" class="close-panel" data-view=".view-main"><img src="../img/icons/black/users.png" alt="" title="" /><span>为他人理赔</span></a></li>
-					
-				</ul>
-			</nav>
-		</div>	
+					<div class="contactform">
+						<form id="ClaimForm" method="post">
+						
+							<blockquote>
+ 								被保人信息
+							</blockquote>
+								<label>姓名:</label>
+								<input type="text" name="insuredName" id="insuredName" value="" class="form_input" />
+							
+								<label>身份证号:</label>
+								<input type="text" name="insuredId" id="insuredId" value="" class="form_input" />
+							
+								<label>电话号码:</label>
+								<input type="tel" name="insuredTel" value="" class="form_input" />
+							
+							<br>
+							<br>
+							
+							<blockquote>
+ 								投保人信息
+							</blockquote>
+								<label>与被保人的关系:</label>
+								<input type="text" name="relationship" value="" class="form_input" />
+							
+								<label>姓名:</label>
+								<input type="text" name="claimantName" value="" class="form_input" />
+							
+								<label>身份证号:</label>
+								<input type="text" name="claimantId" value="" class="form_input" />
+							
+								<label>电话号码:</label>
+								<input type="tel" name="claimantTel" value="" class="form_input" />
+							
+							<br>
+							<br>
+							
+							<blockquote>
+								疾病信息
+							</blockquote>
+								<label>理赔类型:</label>
+								<select name="claimType" class="form_select">
+									<option value="CriticalIllness">重疾</option>
+									<option value="Disability">残疾</option>
+									<option value="InPatient">住院</option>
+									<option value="OutPatient">门诊</option>
+									<option value="death">死亡</option>
+								</select>
+							
+								<label>就诊日:</label>
+								<input type="date" name="incidentDate" value="" placeholder="Please choose..." class="form_input"/>
+                
+								<label>疾病代码/名称：</label>
+								<select name="icdCode" class="form_select">
+									<option value="B15.0-急性甲型肝炎">B15.0-急性甲型肝炎</option>
+									<option value="C15.0-食管恶性肿瘤">C15.0-食管恶性肿瘤</option>
+									<option value="K74.1-肝硬化">K74.1-肝硬化</option>
+									<option value="N21.1-尿道结石">N21.1-尿道结石</option>
+									<option value="R04.0-呼吸道出血">R04.0-呼吸道出血</option>
+								</select>	
+							
+							
+							<br>
+							<br>
+							<blockquote>
+								治疗信息
+							</blockquote>
+							
+								<label>入院日:</label>
+								<input type="date" name="admissionDate" value="" placeholder="Please choose..." class="form_input"/>
+							
+								<label>出院日:</label>
+								<input type="date" name="dischargeDate" value="" placeholder="Please choose..." class="form_input"/>
+                
+								<label>就诊医院:</label>
+								<select name="hospitalNo" class="form_select">
+									<option value="11">01-第一医院</option>
+									<option value="12">02-第二医院</option>
+								</select>
+							
+							<br>
+							<br>
+							<blockquote>
+								医疗/手术 信息
+							</blockquote>
+								<label>手术代码:</label>
+								<input type="text" name="surgicalCode" value="" class="form_input" />
+							
+								<label>手术日:</label>
+								<input type="date" name="surgicalDate" value="" placeholder="Please choose..." class="form_input"/>
+							
+							<br>
+							<br>
+											
+							<input type="submit" name="claimnow" class="form_submit" id="claimnow" value="发送"  />
+							
+						</form>
+					</div>
+								
+				</div>
+      
+			</div>
+				
+		</div>
 	</div>
 </div>

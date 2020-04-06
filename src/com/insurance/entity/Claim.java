@@ -2,6 +2,8 @@ package com.insurance.entity;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Claim
 {
 
@@ -21,12 +23,15 @@ public class Claim
 	private String icdCode;
 
 	//就诊日
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date incidentDate;
 
 	//入院日
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date admissionDate;
 
 	//出院日
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date dischargeDate;
 
 	//医院代码
@@ -36,6 +41,7 @@ public class Claim
 	private String surgicalCode;
 
 	//手术日
+	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date surgicalDate;
 
 	//与被保人关系

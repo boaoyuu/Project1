@@ -1,342 +1,296 @@
 // Initialize your app
-var myApp = new Framework7({
-    animateNavBackIcon: true,
-    // Enable templates auto precompilation
-    precompileTemplates: true,
-    // Enabled pages rendering using Template7
-	swipeBackPage: false,
-	swipePanelOnlyClose: true,
-	pushState: true,
-    template7Pages: true
+var myApp = new Framework7({ //初始化应用
+	animateNavBackIcon : true,
+	// 启用模板自动预编译
+	precompileTemplates : true,
+	// 用Template7渲染页面
+	swipeBackPage : false, //取消右滑关闭
+	swipePanelOnlyClose : true,
+	pushState : true,// 启用哈希（#）导航
+	template7Pages : true// 指定Template7数据
 });
 
-// Export selectors engine
+// Export selectors engine将自定义DOM7库存在变量
 var $$ = Dom7;
 
-// Add main View
-var mainView = myApp.addView('.view-main', {
-    // Enable dynamic Navbar
-    dynamicNavbar: false,
-});
-var subnaview = myApp.addView('.view-subnav');
+// 登录
 
-$(document).ready(function() {
-        circlemenu();
-		$("#RegisterForm").validate();
-		$("#LoginForm").validate();
-		$("#ForgotForm").validate();
-		$(".close-popup").click(function() {					  
-			$("label.error").hide();
-		});
-});
-
-myApp.onPageInit('index', function (page) {
-		circlemenu();
-})
-
-$$(document).on('pageInit', function (e) {
-		$("#RegisterForm").validate();
-		$("#LoginForm").validate();
-		$("#ForgotForm").validate();
-		$(".close-popup").click(function() {					  
-			$("label.error").hide();
-		});
-
-	
-})
-myApp.onPageInit('music', function (page) {
-		  audiojs.events.ready(function() {
-			var as = audiojs.createAll();
-		  });
-})
-myApp.onPageInit('videos', function (page) {
-		  $(".videocontainer").fitVids();
-})
-myApp.onPageInit('contact', function (page) {
-		$("#ContactForm").validate({
-		submitHandler: function(form) {
-		ajaxContact(form);
-		return false;
-		}
-		});	
-})
-myApp.onPageInit('blog', function (page) {
- 
-		$(".posts li").hide();	
-		size_li = $(".posts li").size();
-		x=4;
-		$('.posts li:lt('+x+')').show();
-		$('#loadMore').click(function () {
-			x= (x+1 <= size_li) ? x+1 : size_li;
-			$('.posts li:lt('+x+')').show();
-			if(x == size_li){
-				$('#loadMore').hide();
-				$('#showLess').show();
-			}
-		});
-
-})
-
-myApp.onPageInit('shop', function (page) {
-			
-		$('.qntyplusshop').click(function(e){
-									  
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal)) {
-				$('input[name='+fieldName+']').val(currentVal + 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-			
-		});
-		$(".qntyminusshop").click(function(e) {
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal) && currentVal > 0) {
-				$('input[name='+fieldName+']').val(currentVal - 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-		});	
-  
-})
-myApp.onPageInit('shopitem', function (page) {
-		$(".swipebox").swipebox();	
-		$('.qntyplusshop').click(function(e){
-									  
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal)) {
-				$('input[name='+fieldName+']').val(currentVal + 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-			
-		});
-		$(".qntyminusshop").click(function(e) {
-			e.preventDefault();
-			var fieldName = $(this).attr('field');
-			var currentVal = parseInt($('input[name='+fieldName+']').val());
-			if (!isNaN(currentVal) && currentVal > 0) {
-				$('input[name='+fieldName+']').val(currentVal - 1);
-			} else {
-				$('input[name='+fieldName+']').val(0);
-			}
-		});	
-  
-})
-myApp.onPageInit('cart', function (page) {
-			
-    $('.item_delete').click(function(e){
-        e.preventDefault();
-        var currentVal = $(this).attr('id');
-        $('div#'+currentVal).fadeOut('slow');
-    });
-  
-})
-myApp.onPageInit('photos', function (page) {
-	$(".swipebox").swipebox();
-	$("a.switcher").bind("click", function(e){
-		e.preventDefault();
-		
-		var theid = $(this).attr("id");
-		var theproducts = $("ul#photoslist");
-		var classNames = $(this).attr('class').split(' ');
-		
-		
-		if($(this).hasClass("active")) {
-			// if currently clicked button has the active class
-			// then we do nothing!
-			return false;
-		} else {
-			// otherwise we are clicking on the inactive button
-			// and in the process of switching views!
-
-  			if(theid == "view13") {
-				$(this).addClass("active");
-				$("#view11").removeClass("active");
-				$("#view11").children("img").attr("src","../img/switch_11.png");
-				
-				$("#view12").removeClass("active");
-				$("#view12").children("img").attr("src","../img/switch_12.png");
-			
-				var theimg = $(this).children("img");
-				theimg.attr("src","../img/switch_13_active.png");
-			
-				// remove the list class and change to grid
-				theproducts.removeClass("photo_gallery_11");
-				theproducts.removeClass("photo_gallery_12");
-				theproducts.addClass("photo_gallery_13");
-
-			}
-			
-			else if(theid == "view12") {
-				$(this).addClass("active");
-				$("#view11").removeClass("active");
-				$("#view11").children("img").attr("src","../img/switch_11.png");
-				
-				$("#view13").removeClass("active");
-				$("#view13").children("img").attr("src","../img/switch_13.png");
-			
-				var theimg = $(this).children("img");
-				theimg.attr("src","../img/switch_12_active.png");
-			
-				// remove the list class and change to grid
-				theproducts.removeClass("photo_gallery_11");
-				theproducts.removeClass("photo_gallery_13");
-				theproducts.addClass("photo_gallery_12");
-
-			} 
-			else if(theid == "view11") {
-				$("#view12").removeClass("active");
-				$("#view12").children("img").attr("src","../img/switch_12.png");
-				
-				$("#view13").removeClass("active");
-				$("#view13").children("img").attr("src","../img/switch_13.png");
-			
-				var theimg = $(this).children("img");
-				theimg.attr("src","../img/switch_11_active.png");
-			
-				// remove the list class and change to grid
-				theproducts.removeClass("photo_gallery_12");
-				theproducts.removeClass("photo_gallery_13");
-				theproducts.addClass("photo_gallery_11");
-
-			} 
-			
-		}
-
-	});	
-})
-
-
-// Init Messages
-var messages = app.messages.create({
-  el: '.messages',
-
-  // First message rule
-  firstMessageRule: function (message, previousMessage, nextMessage) {
-    // Skip if title
-    if (message.isTitle) return false;
-    /* if:
-      - there is no previous message
-      - or previous message type (send/received) is different
-      - or previous message sender name is different
-    */
-    if (!previousMessage || previousMessage.type !== message.type || previousMessage.name !== message.name) return true;
-    return false;
-  },
-  // Last message rule
-  lastMessageRule: function (message, previousMessage, nextMessage) {
-    // Skip if title
-    if (message.isTitle) return false;
-    /* if:
-      - there is no next message
-      - or next message type (send/received) is different
-      - or next message sender name is different
-    */
-    if (!nextMessage || nextMessage.type !== message.type || nextMessage.name !== message.name) return true;
-    return false;
-  },
-  // Last message rule
-  tailMessageRule: function (message, previousMessage, nextMessage) {
-    // Skip if title
-    if (message.isTitle) return false;
-      /* if (bascially same as lastMessageRule):
-      - there is no next message
-      - or next message type (send/received) is different
-      - or next message sender name is different
-    */
-    if (!nextMessage || nextMessage.type !== message.type || nextMessage.name !== message.name) return true;
-    return false;
-  }
-});
-
-// Init Messagebar
-var messagebar = app.messagebar.create({
-  el: '.messagebar'
-});
-
-// Response flag
-var responseInProgress = false;
-
-// Send Message
-$$('.send-link').on('click', function () {
-  var text = messagebar.getValue().replace(/\n/g, '<br>').trim();
-  // return if empty message
-  if (!text.length) return;
-
-  // Clear area
-  messagebar.clear();
-
-  // Return focus to area
-  messagebar.focus();
-
-  // Add message to messages
-  messages.addMessage({
-    text: text,
-  });
-
-  if (responseInProgress) return;
-  // Receive dummy message
-  receiveMessage();
-});
-
-// Dummy response
-var answers = [
-  'Yes!',
-  'No',
-  'Hm...',
-  'I am not sure',
-  'And what about you?',
-  'May be ;)',
-  'Lorem ipsum dolor sit amet, consectetur',
-  'What?',
-  'Are you sure?',
-  'Of course',
-  'Need to think about it',
-  'Amazing!!!'
-]
-var people = [
-  {
-    name: 'Kate Johnson',
-    avatar: 'https://cdn.framework7.io/placeholder/people-100x100-9.jpg'
-  },
-  {
-    name: 'Blue Ninja',
-    avatar: 'https://cdn.framework7.io/placeholder/people-100x100-7.jpg'
-  }
-];
-function receiveMessage() {
-  responseInProgress = true;
-  setTimeout(function () {
-    // Get random answer and random person
-    var answer = answers[Math.floor(Math.random() * answers.length)];
-    var person = people[Math.floor(Math.random() * people.length)];
-
-    // Show typing indicator
-    messages.showTyping({
-      header: person.name + ' is typing',
-      avatar: person.avatar
-    });
-
-    setTimeout(function () {
-      // Add received dummy message
-      messages.addMessage({
-        text: answer,
-        type: 'received',
-        name: person.name,
-        avatar: person.avatar
-      });
-      // Hide typing indicator
-      messages.hideTyping();
-      responseInProgress = false;
-    }, 4000);
-  }, 1000);
+function isLoginFormValid(){
+	return $("#LoginForm").validate({
+		rules:
+        {
+            userName://定位到元素属性的name值
+            {
+                required:true,
+                minlength:2,
+                maxlength:10
+            },
+            userPwd://定位到元素属性的name值
+            {
+                required:true,
+                minlength:2,
+                maxlength:16
+            }
+        },
+        messages:
+        {//定义规则提示信息
+            userName:
+            {
+                required:"用户名不能为空",
+                minlength:"不能少于2位",
+                maxlength:"不能大于10位"
+            },
+            userPwd:
+            {
+                required:"密码框不能为空",
+                minlength:"密码长度不能短于2位",
+                maxlength:"密码长度不能大于10位"
+            }
+        }
+	})
 }
+
+$$('input[name="login"]').on('click', function() {
+	
+	if(!isLoginFormValid().form()){
+//		alert("请正确填写表单");
+		return;
+	}
+	
+	var userNameValue = $('input#userNameLi').val().trim();
+	var userPwdValue = $('input#userPwdLi').val().trim();
+	
+	var url = "/userlogin.do" + "?userName=" + userNameValue + "&userPwd=" + userPwdValue;
+			
+	$.ajax({//AJAX 是一种在无需重新加载整个网页的情况下，能够更新部分网页的技术。
+		type : "POST",
+		// 异步改为同步,在接收到后台返回数据之前,调用方不得继续操作
+		async : false,
+		url : url, //要求为String类型的参数，（默认为当前页地址）发送请求的地址。
+		// data: formData,
+		success : function(response) {
+			if (response.result === 1) {
+				alert("result=" + response.result + ", login success!");
+			} else {
+				alert("result=" + response.result + ", login failed!");
+			}
+		}
+	});
+
+});
+
+// 注册
+function isRegisterFormValid(){
+	return $("#RegisterForm").validate({
+		rules:
+        {
+            userName://定位到元素属性的name值
+            {
+                required:true,
+                minlength:3,
+                maxlength:10
+            },
+            userPwd://定位到元素属性的name值
+            {
+                required:true,
+                minlength:6,
+                maxlength:16
+            },
+            userPhone:
+            {
+            	 required:true,
+            },
+            userEmail:
+            {
+            	 required:true,
+            }
+        },
+        messages:
+        {//定义规则提示信息
+            userName:
+            {
+                required:"用户名不能为空",
+                minlength:"不能少于3位",
+                maxlength:"不能大于10位"
+            },
+            userPwd:
+            {
+                required:"密码框不能为空",
+                minlength:"密码长度不能短于6位",
+                maxlength:"密码长度不能大于10位"
+            },
+            userPhone:
+            {
+            	 required:"电话不能为空"
+            },
+            userEmail:
+            {
+            	 required:"Email不能为空"
+            }
+        }
+	})
+}
+
+$$('input[name="register"]').on('click', function() {
+
+	var formData = myApp.formToJSON('#RegisterForm');
+    
+	var userNameValue = $('input#userNameRg').val().trim();
+	var userPwdValue = $('input#userPwdRg').val().trim();
+	var userPhoneValue = $('input[name="userPhone"]').val().trim();
+	var userEmailValue = $('input[name="userEmail"]').val().trim();
+
+	if(!isRegisterFormValid().form())
+	{
+		return;
+	}
+	
+	$.ajax({
+		type : "POST",
+		// 异步改为同步,在接收到后台返回数据之前,调用方不得继续操作
+		async : false,
+		url : "/userregister.do",
+		data : formData,
+		success : function(response) {
+
+			if (response.result === 1) {
+				alert("result=" + response.result + ", " + response.msg);
+			} else {
+				alert("result=" + response.result + ", " + response.msg);
+			}
+		}
+	});
+
+});
+
+// Add main View
+var mainView = myApp.addView('.view-main', { //初始化视图
+	// Enable dynamic Navbar
+	dynamicNavbar : false,
+});
+var subnaview = myApp.addView('.view-subnav');//初始化subnav视图（左边菜单）
+
+$(document).ready(function() { //用来在DOM加载完成之后执行一系列预先定义好的函数。
+	$(".close-popup").click(function() {
+		$("label.error").hide();
+	});
+});
+
+myApp.onPageInit('index', function(page) { //初始化index页面的组件和导航栏的时候会触发。
+})
+
+$$(document).on('pageInit', function(e) { //为所有page的init事件定义相应函数,当Framework7初始化页面的组件的时候会触发
+	$(".close-popup").click(function() {
+		$("label.error").hide();
+	});
+
+})
+
+//Claim Now
+function isClaimFormValid(){
+	return $("#ClaimForm").validate({
+		rules:
+        {
+			insuredName://定位到元素属性的name值
+            {
+                required:true
+            },
+            insuredId://定位到元素属性的name值
+            {
+                required:true
+            },
+            claimType:
+            {
+            	 required:true
+            },
+            icdCode:
+            {
+            	 required:true
+            },
+            admissionDate:
+            {
+            	required:true
+            },
+            dischargeDate:
+            {
+            	required:true
+            }
+        },
+        messages:
+        {//定义规则提示信息
+        	insuredName:
+            {
+                required:"被保人姓名不能为空"
+            },
+            insuredId:
+            {
+                required:"被保人证件号不能为空"
+            },
+            claimType:
+            {
+            	 required:"理赔类型不能为空"
+            },
+            icdCode:
+            {
+            	 required:"疾病代码不能为空"
+            },
+            admissionDate:
+            {
+            	required:"入院日不能为空"
+            },
+            dischargeDate:
+            {
+            	required:"出院日不能为空"
+            }
+        }
+	})
+}
+
+myApp.onPageInit('claimnow', function(page) {
+	$$('input[name="claimnow"]').on('click', function() {
+
+	    var formData = myApp.formToJSON('#ClaimForm');	
+	    //alert(formData);
+	    
+	    var insuredNameValue = $('input[name="insuredName"]').val().trim();
+	    var insuredIdValue = $('input[name="insuredId"]').val().trim();
+	    var claimTypeValue = $('select[name="claimType"]').val().trim();
+	    var icdCodeValue = $('select[name="icdCode"]').val().trim();
+	    var admissionDateValue = $('input[name="admissionDate"]').val().trim();
+	    var dischargeDateValue = $('input[name="dischargeDate"]').val().trim();
+	    	    
+		if(!isClaimFormValid().form())
+		{
+			return;
+		}
+	    
+	    //jQuery
+		$.ajax({
+			type : "POST",
+			// 异步改为同步,在接收到后台返回数据之前,调用方不得继续操作
+			async : false,
+			url : "http://localhost:8080/saveClaim.do",
+			data: $('#ClaimForm').serialize(),
+			
+			success : function(response) {
+				
+				console.log(response);//打印服务端返回的数据(调试用)
+				
+				if (response.result === 1) {
+					alert("result=" + response.result + ", save success!");
+				} else {
+					alert("result=" + response.result + ", save failed!");
+				}
+			},
+			error: function(response) {
+				console.log(response);//打印服务端返回的数据(调试用)
+			}
+				
+		});
+
+	});
+})
+
+
 
 

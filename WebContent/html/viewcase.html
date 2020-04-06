@@ -3,8 +3,8 @@
 </head>
 
 <div class="pages">
-	<div data-page="viewclaim" class="page no-toolbar no-navbar"> <!-- data-page属性存储了一个唯一的page名 -->
-		<div class="page-content">
+	<div data-page="viewcase" class="page no-toolbar no-navbar"> <!-- data-page属性存储了一个唯一的page名 -->
+		<div class="page-content"> <!-- 所有的可见的内容，比如列表和表单等，都应该放在 <div class="page-content"> 中，她是 <div class="page">的子元素。这样才能保证正确的样式，布局和滚动。 -->
     
 			<div class="navbarpages graybg">
 				<div class="navbar_left">
@@ -20,21 +20,11 @@
 
 			<div id="pages_maincontent">
 			
-				<h2 class="page_title">查看理赔进展</h2>
+				<h2 class="page_title">查看结束保单</h2> <!-- 页面标题 -->
 				
 				<div class="page_single layout_fullwidth_padding">
 				
-					<h4 class="checkout_title">正在审核理赔请求......</h4>	<!-- 指引标题 -->
-					
-					<div class="order_item">
-						<div class="order_item_title"><span>理赔进度：10%</span></div>
-							<br>
-							<br>
-							<div class="progressbar color-blue" data-progress="10"></div>
-							<br>
-							<br>
-						</div>
-                            
+
 					<h4 class="checkout_title">被保人信息</h4> <!-- 指引标题 -->
             
 						<div class="order_item"> <!-- 每一列内容 -->
@@ -50,11 +40,11 @@
                     
 						<h4 class="checkout_title">意外及诊断信息</h4> <!-- 指引标题 -->
 
-						<div class="order_item"> <!-- view claim每一列 -->
+						<div class="order_item">
 							<div class="order_item_title"><span>发生意外的日期：</span> 2018/12/01</div>
 						</div>
 						
-						<div class="order_item"> <!-- view claim每一列 -->
+						<div class="order_item">
 							<div class="order_item_title"><span>疾病代码：</span> R04.1-呼吸道出血</div>
 						</div>
             
@@ -69,7 +59,22 @@
 						<div class="order_item">
 							<div class="order_item_title"><span>出院日：</span> 2019/01/20</div>
 						</div>
-
+						
+						<h4 class="checkout_title">理赔金额</h4>   <!-- 指引标题 -->    
+						<div class="carttotal_full"> <!-- 理赔金额结算 -->  
+							<div class="carttotal_row_full"> <!-- 理赔金额结算每列 --> 
+								<div class="carttotal_left">保障内容</div>  <div class="carttotal_right">K038P6</div>
+							</div>
+							<div class="carttotal_row_full">
+								<div class="carttotal_left">保险额</div>  <div class="carttotal_right">400</div>
+							</div>
+							<div class="carttotal_row_full">
+								<div class="carttotal_left">住院天数</div>  <div class="carttotal_right">50</div>
+							</div>						
+							<div class="carttotal_row_last"> <!-- 理赔金额最后结算 --> 
+								<div class="carttotal_left">赔付金额</div> <div class="carttotal_right">20,000.00</div>
+							</div>
+						</div> 
 						
                       
 						<a href="html/myclaim.html" class="button_full btyellow">返回  - 我的理赔</a> 

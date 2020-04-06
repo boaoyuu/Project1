@@ -2,43 +2,39 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"/>
-	<meta name="apple-mobile-web-app-capable" content="yes"/>
-	<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
-	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
-	<link href="img/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image"/>
-	<link href="img/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui"/> <!--对页面进行缩放，得到一个理想的viewport（也就是前面说的ideal viewport） -->
+ 	<meta name="apple-mobile-web-app-capable" content="yes"/> <!--删除默认的苹果工具栏和菜单栏。 -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black"/> <!--控制状态栏显示样式 -->
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" /> <!--在iPhone,iPad,iTouch的safari上可以使用添加到主屏按钮将网站添加到主屏幕上。 -->
+	<link href="img/apple-touch-startup-image-320x460.png" media="(device-width: 320px)" rel="apple-touch-startup-image"/> <!-- 为WebApp设置一个类似NativeApp的启动画面 -->
+	<link href="img/apple-touch-startup-image-640x920.png" media="(device-width: 320px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image"/> <!-- 普通显示屏 and 高清显示屏 -->
 	<title>Carina - Insurance</title>
 	<link rel="stylesheet" href="css/framework7.css"/>
 	<link rel="stylesheet" href="css/style.css"/>
-	<link type="text/css" rel="stylesheet" href="css/swipebox.css" />
 	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,900" rel="stylesheet" type="text/css" />
+
 </head>
 <body id="mobile_wrap">
 
-	<div class="statusbar-overlay"></div>
+	<div class="statusbar-overlay"></div> <!-- 会自动检测您的应用程序是否处于全屏模式 -->
 
-	<div class="panel-overlay"></div>
+	<div class="panel-overlay"></div> <!-- 添加侧边栏覆盖物，面板打开时叠加应用程序 -->
 
-	<div class="panel panel-left panel-reveal">
-		<div class="view view-subnav">
-			<div class="pages">
-				<div data-page="panel-leftmenu" class="page pagepanel">	
-					<div class="page-content">
-						<nav class="main-nav icons_31">
+	<div class="panel panel-left panel-reveal"> <!-- 面板元素；左边面板；使整个应用程序的内容移出。 -->
+		<div class="view view-subnav"> <!-- 是应用程序的单独视觉部分,有自己的设置；view-subnav视图 -->
+			<div class="pages"> <!-- 是单个视图view中页面的包装容器。这是必需的，因为所有页面转换都在这里发生。 -->
+				<div data-page="panel-leftmenu" class="page pagepanel">	<!-- data-page属性存储了一个唯一的page名，可以用来帮助我们确定加载的是哪一个页面。 -->
+					<div class="page-content"> <!-- 所有的可见的内容，比如列表和表单等，都应该放在 <div class="page-content"> 中，她是 <div class="page">的子元素。这样才能保证正确的样式，布局和滚动。 -->
+						<nav class="main-nav icons_31"> <!-- 菜单内容；菜单图标样式 --> <!-- nav标签中的内容默认没有显示效果，只表示该区域是导航链接部分；nav标签只起语义的作用，没有实际的显示效果；nav标签中的内容通常是一个列表； -->
 							<ul>
-								<li><a href="index.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/home.png" alt="" title="" /><span>首页</span></a></li>
-								<li class="subnav"><a href="html/claimnow.html"><img src="img/icons/black/electronics.png" alt="" title="" /><span>发起理赔</span></a></li>								
-								
-								<li><a href="html/myclaim.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/features.png" alt="" title="" /><span>我的理赔</span></a></li>
-					
-								<li><a href="html/mycase.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/form.png" alt="" title="" /><span>我的保单</span></a></li>
+								<li><a href="index.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/home.png" alt="" title="" /><span>首页</span></a></li> <!-- data-view属性实现视图之间切换 -->
+								<li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="img/icons/black/lock.png" alt="" title="" /><span>登录</span></a></li>	<!-- data-popup属性实现弹出窗口 -->
+								<li class="subnav"><a href="html/categories.html"><img src="img/icons/black/electronics.png" alt="" title="" /><span>理赔中心</span></a></li>		
+																				
 								<li><a href="html/shop.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/shop.png" alt="" title="" /><span>保险商城</span></a></li>
-								<li><a href="html/class.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/class.png" alt="" title="" /><span>保险小课堂</span></a></li>		
-								
-								<li class="subnav"><a href="html/categories.html"><img src="img/icons/black/help.png" alt="" title="" /><span>帮助中心</span></a></li>								
-								<li><a href="html/healthcenter.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/building.png" alt="" title="" /><span>健康中心</span></a></li>
-								<li><a href="#" data-popup=".popup-login" class="open-popup close-panel"><img src="img/icons/black/lock.png" alt="" title="" /><span>登录</span></a></li>
+								<li><a href="html/class.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/class.png" alt="" title="" /><span>保险小课堂</span></a></li>	
+								<li><a href="html/healthcenter.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/building.png" alt="" title="" /><span>健康中心</span></a></li>															
+								<li><a href="html/helpcenter.html" class="close-panel" data-view=".view-main"><img src="img/icons/black/help.png" alt="" title="" /><span>帮助中心</span></a></li>
 								
 							</ul>
 						</nav>
@@ -48,18 +44,18 @@
 		</div>  
 	</div>
 
-	<div class="panel panel-right panel-reveal">
+	<div class="panel panel-right panel-reveal"> <!-- 面板元素；右边面板；使整个应用程序的内容移出显示。 -->
 		<div class="user_login_info">
 	  
-			<div class="user_thumb">
+			<div class="user_thumb">  <!-- 欢迎部分 -->
 				<img src="img/indexbg.jpg" alt="" title="" />
 				<div class="user_details">
-					<p>Welcome, <span>Carina Lin</span></p>
+					<p>欢迎, <span>Carina Lin</span></p>
 				</div>  
 				<div class="user_avatar"><img src="img/photos/author.png" alt="" title="" /></div>       
 			</div>
 				
-			<nav class="user-nav">
+			<nav class="user-nav">  <!-- 导航列表部分 -->
 				<ul>	
 					<li><a href="html/message.html" class="close-panel"><img src="img/icons/black/message.png" alt="" title="" /><span>我的消息</span><strong>12</strong></a></li>
 					<li><a href="html/team.html" class="close-panel"><img src="img/icons/black/users.png" alt="" title="" /><span>客服中心</span><strong>5</strong></a></li>
@@ -70,23 +66,19 @@
 		</div>
 	</div>
 
-	<div class="views">
+	<div class="views"> <!-- 所有可见View的容器,主容器 -->
 
-		<div class="view view-main">
+		<div class="view view-main"> <!-- 主视图会有一个 view-main 的class，因为我们会默认把所有的链接加载的页面放进主视图中。 -->
 
-			<div class="pages">
+			<div class="pages"> <!-- 相当于网页里打开的页面 -->
 
-				<div data-page="index" class="page homepage">
-					<div class="page-content">
+				<div data-page="index" class="page homepage"> <!-- page名：index页面 -->
+					<div class="page-content"> <!-- 所有的可见的内容，比如列表和表单等，都应该放在 <div class="page-content"> 中，她是 <div class="page">的子元素。这样才能保证正确的样式，布局和滚动。 -->
 			
-						<div class="navbarpages nobg">
-							<a href="#" data-panel="left" class="open-panel">
+						<div class="navbarpages nobg">  <!-- 顶部菜单和个人中心icon -->
+							<a href="#" data-panel="left" class="open-panel"> <!-- data-panel属性指定哪边栏 -->
 								<div class="navbar_left"><img src="img/icons/white/menu.png" alt="" title="" /></div>
 							</a>		
-							
-<!--  							<div class="navbar_center"> -->
-<!--  								<div class="logo_image"><a href="index.html"><img src="img/logo_image.png" alt="" title=""/></a> </div> -->
-<!--  							</div>			 -->
 
 							<a href="#" data-panel="right" class="open-panel">
 								<div class="navbar_right"><img src="img/icons/white/user.png" alt="" title="" /></div>
@@ -95,15 +87,16 @@
 
 					<!-- Slider -->
 						<div class="swiper-container slidertoolbar swiper-init" data-effect="slide" data-parallax="true" data-pagination=".swiper-pagination" data-paginationClickable="true">
-							<div class="swiper-wrapper">
+<!-- 带有幻灯片和分页的主滑块容器。必填元素；。。；初始化swiper；data-effect：framework7内嵌swiper API，effect设置slide的切换效果，默认；开启视差效果；分页器容器；clickable此参数设置为true时，点击分页器的指示点分页器会控制Swiper切换。-->
+							<div class="swiper-wrapper"> <!-- slider的附加包装。必填元素 -->
                     
-								<div class="swiper-slide" style="background-image:url(img/slide1.jpg);">
-									<div class="slider_trans">
-										<div class="slider-caption">
-											<h2 data-swiper-parallax="-100%">开启你的保险之旅</h2>
-											<span class="subtitle" data-swiper-parallax="-60%">OFFER A CONSIDERABLE CARE</span>
-											<p data-swiper-parallax="-30%">Only the best and convenient claim process.  High quality products and service to our guests. </p>
-											<a href="html/healthcenter.html" class="swiper_read_more" data-view=".view-main">HEALTH CENTER</a>
+								<div class="swiper-slide" style="background-image:url(img/slide1.jpg);"> <!-- 单个滑动元件。里面可以包含任何HTML -->
+									<div class="slider_trans"> <!-- 轮播的字们 -->
+										<div class="slider-caption"> <!-- 轮播的字们 -->
+											<h2 data-swiper-parallax="-100%">我要理赔</h2> <!-- 开启视差效果,移动距离=元素宽度*percentage*progress,向右移动 -->
+<!-- 											<span class="subtitle" data-swiper-parallax="-60%">线上理赔新时代</span> -->
+											<p data-swiper-parallax="-50%">便捷的理赔模式，快速理赔！ </p><!-- 开启视差效果,移动距离=元素宽度*percentage*progress,向右移动 -->
+											<a href="html/claimnow.html" class="swiper_read_more" data-view=".view-main">发起理赔</a> <!-- 视图切换 -->
 										</div>
 									</div> 
 								</div>
@@ -111,9 +104,8 @@
 									<div class="slider_trans">		  
 										<div class="slider-caption">
 											<h2 data-swiper-parallax="-100%">保险商城</h2>
-											<span class="subtitle" data-swiper-parallax="-60%">VIEW THE CLAIM PROCESS</span>
-											<p data-swiper-parallax="-30%">Go and buy your favorite insurance products.  </p>
-											<a href="html/shop.html" class="swiper_read_more" data-view=".view-main">ENTER NOW</a>
+											<p data-swiper-parallax="-50%">您和家人的健康，由我们来守护！</p>
+											<a href="html/shop.html" class="swiper_read_more" data-view=".view-main">进入保险商城</a>
 										</div>	
 									</div>	
 								</div>
@@ -121,24 +113,23 @@
 									<div class="slider_trans">		  
 										<div class="slider-caption">
 											<h2 data-swiper-parallax="-100%">保险小课堂</h2>
-												<span class="subtitle" data-swiper-parallax="-60%">LEARN MORE TO PROTECT YOURSELF</span>
-												<p data-swiper-parallax="-30%">If you want to learn something, go get it.</p>
-												<a href="html/class.html" class="swiper_read_more" data-view=".view-main">ENTER NOW</a>
+												<p data-swiper-parallax="-50%">科普保险小知识</p>
+												<a href="html/class.html" class="swiper_read_more" data-view=".view-main">进入保险小课堂</a>
 										</div>
 									</div>
 								</div> 		   
 							</div>
-							<div class="swiper-pagination"></div>
+							<div class="swiper-pagination"></div> <!-- 装有分页选项的容器。请注意，分页符号将自动创建。可选元素 -->
 						</div>
 			  
-						<div class="swiper-container-toolbar swiper-toolbar swiper-init" data-effect="slide" data-slides-per-view="5" data-slides-per-group="3" data-space-between="0" data-pagination=".swiper-pagination-toolbar">
-							<div class="swiper-pagination-toolbar"></div>
-							<div class="swiper-wrapper">
-								<div class="swiper-slide toolbar-icon"><a href="html/healthcenter.html" data-view=".view-main"><img src="img/icons/blue/building.png" alt="" title="" /></a></div>
-								<div class="swiper-slide toolbar-icon"><a href="html/shop.html" data-view=".view-main"><img src="img/icons/blue/shop.png" alt="" title="" /></a></div>
-								<div class="swiper-slide toolbar-icon"><a href="html/class.html" data-view=".view-main"><img src="img/icons/blue/class.png" alt="" title="" /></a></div>
-								<div class="swiper-slide toolbar-icon"><a href="html/helpcenter.html" data-view=".view-main"><img src="img/icons/blue/help.png" alt="" title="" /></a></div>
-								<div class="swiper-slide toolbar-icon"><a href="html/team.html" data-view=".view-main"><img src="img/icons/blue/users.png" alt="" title="" /></a></div>
+						<div class="swiper-container-toolbar swiper-toolbar swiper-init" data-effect="slide" data-slides-per-view="5" data-slides-per-group="3" data-space-between="0" data-pagination=".swiper-pagination-toolbar"> <!-- 设置slider容器能够同时显示的slides数量;数量多少为一组; 间距；分页器容器-->
+							<div class="swiper-pagination-toolbar"></div> <!-- 底部导航分页视图 -->
+							<div class="swiper-wrapper"> <!-- slider的附加包装。必填元素 -->
+								<div class="swiper-slide toolbar-icon"><a href="html/claimnow.html" data-view=".view-main" style="color:#5cd1ea;font-size:10px"><img src="img/icons/blue/electronics.png" alt="" title="" />发起理赔</a></div>								
+								<div class="swiper-slide toolbar-icon"><a href="html/shop.html" data-view=".view-main" style="color:#5cd1ea;font-size:10px"><img src="img/icons/blue/shop.png" alt="" title="" />保险商城</a></div>
+								<div class="swiper-slide toolbar-icon"><a href="html/class.html" data-view=".view-main" style="color:#5cd1ea;font-size:10px"><img src="img/icons/blue/class.png" alt="" title="" />保险小课堂</a></div>
+								<div class="swiper-slide toolbar-icon"><a href="html/healthcenter.html" data-view=".view-main" style="color:#5cd1ea;font-size:10px"><img src="img/icons/blue/building.png" alt="" title="" />健康中心</a></div>
+								<div class="swiper-slide toolbar-icon"><a href="html/helpcenter.html" data-view=".view-main" style="color:#5cd1ea;font-size:10px"><img src="img/icons/blue/help.png" alt="" title="" />帮助中心</a></div>
 							</div>
 						</div>	 
 						 
@@ -151,18 +142,18 @@
 
 	
 	<!-- Login Popup -->
-	<div class="popup popup-login">
-		<div class="content-block">
+	<div class="popup popup-login"> <!-- 弹出窗 -->
+		<div class="content-block"> <!-- 内容块.可以用来添加额外的内容有不同的格式 -->
 			<h4>登录</h4>
 			<div class="loginform">
 				<form id="LoginForm" method="post">
-					<input type="text" name="Username" value="" class="form_input required" placeholder="username" />
-					<input type="password" name="Password" value="" class="form_input required" placeholder="password" />
-					<input type="submit" name="submit" class="form_submit" id="submit" value="登录" />
+					<input type="text" id="userNameLi" name="userName" value="" class="form_input required" placeholder="username" />
+					<input type="password" id="userPwdLi" name="userPwd" value="" class="form_input required" placeholder="password" />
+					<input type="submit" name="login" class="form_submit" id="login" value="登录" />
 				</form>
 				<div class="signup_bottom">
 					<p>没有账号？</p>
-					<a href="#" data-popup=".popup-signup" class="open-popup">注册</a>
+					<a href="#" data-popup=".popup-signup" class="open-popup">注册</a> <!-- 跳转到注册popup -->
 				</div>
 			</div>
 			<div class="close_popup_button">
@@ -177,11 +168,11 @@
 			<h4>注册</h4>
 			<div class="loginform">
 				<form id="RegisterForm" method="post">
-					<input type="text" name="Username" value="" class="form_input required" placeholder="Username" />
-					<input type="text" name="Phone" value="" class="form_input required" placeholder="Phone Number" />
-					<input type="text" name="Email" value="" class="form_input required" placeholder="Email" />
-					<input type="password" name="Password" value="" class="form_input required" placeholder="Password" />
-					<input type="submit" name="submit" class="form_submit" id="submit" value="注册" />
+					<input type="text" id="userNameRg" name="userName" value="" class="form_input required" placeholder="Username" />
+					<input type="password" id="userPwdRg" name="userPwd" value="" class="form_input required" placeholder="Password" />
+					<input type="text" name="userPhone" value="" class="form_input required" placeholder="Phone Number" />
+					<input type="text" name="userEmail" value="" class="form_input required" placeholder="Email" />
+					<input type="submit" name="register" class="form_submit" id="register" value="注册" />
 				</form>
 					
 			</div>
@@ -198,21 +189,18 @@
 			<p>您的问题请告诉我们！我们为您解决！</p>
 			<ul class="social_share">
 				<li><a href="html/team.html" class="close-popup"><img src="img/icons/black/users.png" alt="" title="" /><span>专属客服</span></a></li>
-				<li><a href="tel:15917393987" ><img src="img/icons/black/phone.png" alt="" title="" /><span>联系电话</span></a></li>
-				<li><a href="www.163.com" ><img src="img/icons/black/message.png" alt="" title="" /><span>发送邮件</span></a></li>
+				<li><a href="tel:15917393987" class="close-popup"><img src="img/icons/black/phone.png" alt="" title="" /><span>联系电话</span></a></li>
+				<li><a href="www.163.com" class="close-popup"><img src="img/icons/black/message.png" alt="" title="" /><span>发送邮件</span></a></li>
 			</ul>
 			<div class="close_popup_button"><a href="#" class="close-popup"><img src="img/icons/black/menu_close.png" alt="" title="" /></a></div>
 		</div>
 	</div>
     
+	   
+	
 	<script type="text/javascript" src="js/jquery-1.10.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.validate.min.js" ></script>
 	<script type="text/javascript" src="js/framework7.js"></script>
-	<script type="text/javascript" src="js/jquery.swipebox.js"></script>
-	<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-	<script type="text/javascript" src="js/email.js"></script>
-	<script type="text/javascript" src="js/circlemenu.js"></script>
-	<script type="text/javascript" src="js/audio.min.js"></script>
-	<script type="text/javascript" src="js/my-app.js"></script>
+	<script type="text/javascript" src="js/my-app.js"></script> 
 </body>
 </html>
