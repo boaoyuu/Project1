@@ -4,26 +4,46 @@
 
 <div class="pages">
 	<div data-page="classone" class="page no-toolbar no-navbar">
+	
+		  <!-- Search Bar -->
+  <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" id="searchbar">
+    <div class="searchbar-input">
+      <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+    </div><a href="#" class="searchbar-cancel">Cancel</a>
+  </form>
+ 
+  <!-- Search Bar overlay -->
+  <div class="searchbar-overlay"></div>
+		
 		<div class="page-content">
 		
-			<div class="navbarpages graybg">
-				<div class="navbar_left">
-					<div class="logo_image"><a href="../index.html"><img src="../img/logo_image_dark.png" alt="" title=""/></div>
-				</div>			
-				<a href="#" data-panel="left" class="open-panel">
-					<div class="navbar_right"><img src="../img/icons/black/menu.png" alt="" title="" /></div>
-				</a>
-				<a href="#" data-panel="right" class="open-panel">
-					<div class="navbar_right whitebg"><img src="../img/icons/black/user.png" alt="" title="" /></div>
-				</a>					
-			</div>
+		<!-- This block will be displayed if nothing found -->
+    <div class="content-block searchbar-not-found">
+      <div class="content-block-inner">Nothing found</div>
+    </div>
+		
+ 			<div class="navbarpages graybg"> 
+ 				<div class="navbar_left"> 
+ 					<div class="logo_image"><a href="../index.html"><img src="../img/logo_image_dark.png" alt="" title=""/></div> 
+				</div>			 
+ 				<a href="#" data-panel="left" class="open-panel"> 
+ 					<div class="navbar_right"><img src="../img/icons/black/menu.png" alt="" title="" /></div> 
+ 				</a> 
+ 				<a href="#" data-panel="right" class="open-panel"> 
+					<div class="navbar_right whitebg"><img src="../img/icons/black/user.png" alt="" title="" /></div> 
+				</a>					 
+ 			</div> 
      
 			<div id="pages_maincontent">
-				<h2 class="page_title"><strong>保险小课堂-基础概念类</strong></h2>
+				<h2 class="page_title">
+				<a href="html/class.html" class="backto"><img src="../img/icons/black/back.png" alt="" title="" /></a> 
+				<strong>保险小课堂-基础概念类</strong>
+				<a href="#" class="searchbtn"><img src="../img/icons/blue/search.png" alt="" title="" /></a>
+				</h2>
 	  
 				<div class="page_single layout_fullwidth_padding">  
 				
-					<div class="list-block accordion-list"> <!-- 手风琴菜单 -->
+					<div class="list-block accordion-list list-block-search searchbar-found"> <!-- 手风琴菜单 -->
 					  <ul>
 					  
 					    <li class="accordion-item"><a href="#" class="item-content item-link"> <!-- 手风琴菜单项 -->
@@ -286,8 +306,8 @@
 					      <div class="accordion-item-content">
 					        <div class="content-block">
 					          <p>　　第一，意外伤害保险承担因意外伤害而导致的身故，不承保因疾病而导致的身故。这两种原因导致的身故都属于定期寿险的保险责任范围。
-</br>　　 第二，意外伤害保险承保因意外伤害导致的残疾，并依照不同的残疾程度给付保险金。定期寿险有的不包含残疾给付责任，有的虽然包含残疾责任，但仅包括保险合同约定的全残责任。
-</br>　　第三，意外伤害保险保险期间一般较短，多为一年及一年期以下。定期寿险保险期间一般较长。</p>
+<br>　　 第二，意外伤害保险承保因意外伤害导致的残疾，并依照不同的残疾程度给付保险金。定期寿险有的不包含残疾给付责任，有的虽然包含残疾责任，但仅包括保险合同约定的全残责任。
+<br>　　第三，意外伤害保险保险期间一般较短，多为一年及一年期以下。定期寿险保险期间一般较长。</p>
 					        </div>
 					      </div>
 					  </li>
@@ -299,9 +319,9 @@
 					      <div class="accordion-item-content">
 					        <div class="content-block">
 					          <p>　　分红型保险是指保险公司将其实际经营成果优于定价假设的盈余，按照一定比例向保单持有人进行分配的人寿保险，具有以下特点：
-</br>　　第一，保单持有人可以获得红利分配。分红保险除具有基本保障功能外，保险公司每年还根据分红保险业务的实际经营状况，决定红利分配，即客户可以与公司一起分享公司的经营成果。
-</br>　　第二，红利分配方式包括现金红利和增额红利。现金红利分配是指直接以现金的形式将盈余分配给保单持有人，保险公司可以提供多种红利领取方式，比如现金、抵交保费、累积生息以及购买交清保额等。增额红利分配是指在整个保险期限内每年以增加保额的方式分配红利。
-</br>　　第三，红利的分配是不确定的。分红水平主要取决于保险公司的实际经营成果。</p>
+<br>　　第一，保单持有人可以获得红利分配。分红保险除具有基本保障功能外，保险公司每年还根据分红保险业务的实际经营状况，决定红利分配，即客户可以与公司一起分享公司的经营成果。
+<br>　　第二，红利分配方式包括现金红利和增额红利。现金红利分配是指直接以现金的形式将盈余分配给保单持有人，保险公司可以提供多种红利领取方式，比如现金、抵交保费、累积生息以及购买交清保额等。增额红利分配是指在整个保险期限内每年以增加保额的方式分配红利。
+<br>　　第三，红利的分配是不确定的。分红水平主要取决于保险公司的实际经营成果。</p>
 					        </div>
 					      </div>
 					  </li>
@@ -313,9 +333,9 @@
 					      <div class="accordion-item-content">
 					        <div class="content-block">
 					          <p>　　万能型保险是指包含保险保障功能并设立有保底收益投资账户的人寿保险，具有以下特点：
-</br>　　第一，交费灵活，收费透明。通常来说，投保人交纳首期保费后，可不定期不定额地交纳保费。同时，保险公司向投保人明示所收取的各项费用。
-</br>　　第二，灵活性高，保额可调整。账户资金可在合同约定的条件下灵活支取。按照合同约定，投保人通常可以提高或降低保险金额。
-</br>　　第三，通常设定最低保证利率，定期结算投资收益。此类产品为投资账户提供最低收益保证，并且可以与保险公司分享最低保证收益以上的投资回报。</p>
+<br>　　第一，交费灵活，收费透明。通常来说，投保人交纳首期保费后，可不定期不定额地交纳保费。同时，保险公司向投保人明示所收取的各项费用。
+<br>　　第二，灵活性高，保额可调整。账户资金可在合同约定的条件下灵活支取。按照合同约定，投保人通常可以提高或降低保险金额。
+<br>　　第三，通常设定最低保证利率，定期结算投资收益。此类产品为投资账户提供最低收益保证，并且可以与保险公司分享最低保证收益以上的投资回报。</p>
 					        </div>
 					      </div>
 					  </li>
@@ -327,15 +347,16 @@
 					      <div class="accordion-item-content">
 					        <div class="content-block">
 					          <p>　　投资连结型保险是指包含保险保障功能并至少在一个投资账户拥有一定资产价值的人寿保险，具有以下特点：
-</br>　　第一、交费灵活，收费透明。通常来说，投保人交纳首期保费后，可不定期不定额地交纳保费。同时，保险公司向投保人明示所收取的各项费用。
-</br>　　第二、灵活性高，账户资金可自由转换。由于投资连结保险通常具有多个投资账户，不同投资账户具有不同的投资策略和投资方向，投保人可以根据自身偏好将用于投资的保费分配到不同投资账户，按合同约定调整不同账户间的资金分配比例，并可在合同约定条件下灵活支取投资账户的资金。
-</br>　　第三、通常不设定最低保证利率。投资收益可以在账户价格波动中反映出来（保险公司目前通常不迟于一周公布一次账户价格），因此，若具体投资账户运作不佳或随股市波动，投入该投资账户的投资收益可能会出现负数。</p>
+<br>　　第一、交费灵活，收费透明。通常来说，投保人交纳首期保费后，可不定期不定额地交纳保费。同时，保险公司向投保人明示所收取的各项费用。
+<br>　　第二、灵活性高，账户资金可自由转换。由于投资连结保险通常具有多个投资账户，不同投资账户具有不同的投资策略和投资方向，投保人可以根据自身偏好将用于投资的保费分配到不同投资账户，按合同约定调整不同账户间的资金分配比例，并可在合同约定条件下灵活支取投资账户的资金。
+<br>　　第三、通常不设定最低保证利率。投资收益可以在账户价格波动中反映出来（保险公司目前通常不迟于一周公布一次账户价格），因此，若具体投资账户运作不佳或随股市波动，投入该投资账户的投资收益可能会出现负数。</p>
 					        </div>
 					      </div>
 					  </li>
 					    
 						</ul>
-						
+						<br>
+						<br>
 						<a href="html/class.html" class="button_full btyellow">返回-保险小课堂</a>
 						
 					</div>					

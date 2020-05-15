@@ -13,18 +13,15 @@
     7-1. SWIPE SLIDER
     7-2. FEATURED LISTS
     7-3. TEAM DESIGN LAYOUT
-    7-4. MUSIC LIST DESIGN LAYOUT
 8. POPUPS
 9. SHOP LAYOUT
      9-1. SHOP ITEM PAGE 
      9-3. SUCCESS PAGE
-10. PHOTO GALLERY
 11. BLOG LAYOUT
 12. FORMS
       12.1 LOGIN FORM
       12.2 CONTACT FORM
 13. TABS / ACCORDION / TABLES
-14. MEDIA QUERIES
 */
 /*===============================================*/
 /* 1. RESET		 						 */
@@ -286,7 +283,7 @@ color:#fff;
 .panel { /*展开面板的设置*/
 z-index: 1000; /*指定堆叠顺序*/
 display: none;
--webkit-box-sizing: border-box;/* Safari b-b为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。 */
+-webkit-box-sizing: border-box;/*元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。 */
 -moz-box-sizing: border-box;/* Firefox */
 box-sizing: border-box; /* common */
 overflow: auto;/* 规定溢出内容如何处理：如果剩下内容被砍，则显示滚动条 */
@@ -313,7 +310,7 @@ background-color:#5cd1ea;
 .user_login_info{ /*右边面板登录信息*/
 padding:0px;
 }
-.user_thumb{
+.user_thumb{/*登录信息背景图*/
 width:100%;
 margin:auto;
 position:relative;
@@ -492,15 +489,16 @@ background-color:#000;
 }
 #pages_maincontent{ /*其他页面*/
 width:100%;
-padding:0 0 30px 0;
+padding:0 0 30px 0;/*内边距*/
 margin:0px;
-position: absolute; 
-top: 70px; 
+position: absolute; /*绝对位置*/
+top: 70px; /*外边距*/
 left: 0; 
 right: 0; 
 bottom: 0px;
 overflow: scroll; /*内容溢出*/
--webkit-overflow-scrolling: touch;
+-webkit-overflow-scrolling: touch;/*谷歌浏览器-内容溢出*/
+background-image: linear-gradient(180deg, #fcf9f9, #f9f7f3, #f7f5ec, #f4f3e6);/*设置页面背景渐变效果*/
 }
 #pages_maincontent p{ /*其他页面内容*/
 padding:0 0 15px 0;
@@ -1202,10 +1200,21 @@ line-height:35px;
 /*===============================================*/
 /* 11. BLOG LAYOUT */
 /*===============================================*/	
-.list-block { /*class手风琴菜单*/
-margin:0px 0;
+.list-block { /*列表容器*/
+margin:2px 2px;
+border-radius:10px;
 }
-.list-block ul::before { /*class手风琴菜单，伪元素，在元素内容ul的最前面添加新内容。*/
+.accordion-item{
+border-radius:10px;
+border: 1px #f0f0f0 solid;
+margin: 10px 0 10px 0;
+padding: 0 15px 5px 15px;
+}
+.list-block ul{
+	border-radius:20px;
+	padding: 8px;
+}
+.list-block ul::before { /*列表容器，伪元素，在元素内容ul的最前面添加新内容。*/
 content: '';
 position: absolute;
 left: 0;
@@ -1215,15 +1224,18 @@ right: auto;
 height: 1px;
 width: 100%;
 background-color: #fff;
+border-radius:10px;
 }
-.list-block ul::after { /*class手风琴菜单，伪元素，在元素内容ul的最后面添加新内容。*/
+.list-block ul::after { /*列表容器，伪元素，在元素内容ul的最后面添加新内容。*/
 background-color: #fff;
+border-radius:10px;
 }
-.list-block li{  /*class手风琴菜单，每一项内容*/
-border-bottom:1px #f0f0f0 solid;
+.list-block li{  /*列表容器，每一项内容*/
+ border-bottom:1px #f0f0f0 solid; 
 margin:0;
+border-radius:10px;
 }
-.list-block .item-content { /*class手风琴菜单，每一项内容，点击*/
+.list-block .item-content { /*列表容器，每一项内容，点击*/
 padding-left:0px;
 padding-top:10px;
 }
@@ -1322,13 +1334,24 @@ max-width:100%;
 margin:0 0 20px 0;
 }
 a.backto{ /*返回icon*/
-width:10%;
+width:3%;
 float:left;
-margin:10px 0 0 5%;
+margin:1px 0 0 5%;
 }
 a.backto img{/*返回icon*/
 width:70%;
-display:block;
+display:inline-block;
+}
+a.searchbtn{
+width:3%;
+float:right;
+margin:1px 30px 0 8%;
+border-radius:50px; /*圆角*/
+border:1px #f0f0f0 solid;
+}
+a.searchbtn img{
+width:70%;
+display:inline-block;
 }
 ul.comments{
 list-style:none;
@@ -1587,6 +1610,24 @@ font-weight:700;
 a.button_full{ /*tablet通用大按钮*/
 padding:10px 0;
 }
+a.backto{ /*返回icon*/
+width:5%;
+float:left;
+margin:5px 0 0 5%;
+}
+a.backto img{/*返回icon*/
+width:70%;
+display:inline-block;
+}
+a.searchbtn{
+width:5%;
+float:right;
+margin:5px 8px 0 5%;
+}
+a.searchbtn img{
+width:70%;
+display:inline-block;
+}
 
 }
 /* -----------------MOBILE---------------- */
@@ -1677,6 +1718,25 @@ line-height:25px;
 font-weight:400;
 padding:5px 0;
 }
+a.backto{ /*返回icon*/
+width:8%;
+float:left;
+margin:2px 0 0 5%;
+}
+a.backto img{/*返回icon*/
+width:70%;
+display:inline-block;
+}
+a.searchbtn{
+width:8%;
+float:right;
+margin:2px 8px 0 5%;
+}
+a.searchbtn img{
+width:70%;
+display:inline-block;
+}
+
 .content-block { /*手机端登录内容块*/
 padding:25px 5%;
 }

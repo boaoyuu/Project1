@@ -4,8 +4,24 @@
 
 <div class="pages">
 	<div data-page="commonqatwo" class="page no-toolbar no-navbar">
+	
+			  <!-- Search Bar -->
+  <form data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init" id="searchbar">
+    <div class="searchbar-input">
+      <input type="search" placeholder="Search"><a href="#" class="searchbar-clear"></a>
+    </div><a href="#" class="searchbar-cancel">Cancel</a>
+  </form>
+ 
+  <!-- Search Bar overlay -->
+  <div class="searchbar-overlay"></div>
+		
 		<div class="page-content">
 		
+		<!-- This block will be displayed if nothing found -->
+    <div class="content-block searchbar-not-found">
+      <div class="content-block-inner">Nothing found</div>
+    </div>
+			
 			<div class="navbarpages graybg">
 				<div class="navbar_left">
 					<div class="logo_image"><a href="../index.html"><img src="../img/logo_image_dark.png" alt="" title=""/></div>
@@ -19,11 +35,15 @@
 			</div>
      
 			<div id="pages_maincontent">
-				<h2 class="page_title"><strong>常见问题-核保类问题</strong></h2>
+				<h2 class="page_title">
+				<a href="html/commonqa.html" class="backto"><img src="../img/icons/black/back.png" alt="" title="" /></a> 
+				<strong>常见问题-核保类问题</strong>
+				<a href="#" class="searchbtn"><img src="../img/icons/blue/search.png" alt="" title="" /></a>
+				</h2>
 	  
 				<div class="page_single layout_fullwidth_padding">  
 				
-					<div class="list-block accordion-list">
+					<div class="list-block accordion-list list-block-search searchbar-found">
 					  <ul>
 					  
 					    <li class="accordion-item"><a href="#" class="item-content item-link">
@@ -71,7 +91,8 @@
 					 </li>
 					    
 						</ul>
-						
+						<br>
+						<br>						
 						<a href="html/commonqa.html" class="button_full btyellow">返回-常见问题</a>
 						
 					</div>					

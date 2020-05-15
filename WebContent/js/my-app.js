@@ -6,7 +6,7 @@ var myApp = new Framework7({ //初始化应用
 	// 用Template7渲染页面
 	swipeBackPage : false, //取消右滑关闭
 	swipePanelOnlyClose : true,
-	pushState : true,// 启用哈希（#）导航
+	pushState : true,// 开启url根据路由hash变化
 	template7Pages : true// 指定Template7数据
 });
 
@@ -17,13 +17,13 @@ var $$ = Dom7;
 
 function isLoginFormValid(){
 	return $("#LoginForm").validate({
-		rules:
+		rules://规则
         {
             userName://定位到元素属性的name值
             {
                 required:true,
                 minlength:2,
-                maxlength:10
+                maxlength:16
             },
             userPwd://定位到元素属性的name值
             {
@@ -38,13 +38,13 @@ function isLoginFormValid(){
             {
                 required:"用户名不能为空",
                 minlength:"不能少于2位",
-                maxlength:"不能大于10位"
+                maxlength:"不能大于16位"
             },
             userPwd:
             {
                 required:"密码框不能为空",
                 minlength:"密码长度不能短于2位",
-                maxlength:"密码长度不能大于10位"
+                maxlength:"密码长度不能大于16位"
             }
         }
 	})
@@ -71,6 +71,12 @@ $$('input[name="login"]').on('click', function() {
 		success : function(response) {
 			if (response.result === 1) {
 				alert("result=" + response.result + ", login success!");
+//				myApp.alert('result='+ response.result, 'login success!');
+				myApp.addNotification({
+			        title: 'Insurance',
+			        message: 'login success'
+			    });
+				
 			} else {
 				alert("result=" + response.result + ", login failed!");
 			}
@@ -163,9 +169,9 @@ $$('input[name="register"]').on('click', function() {
 
 });
 
-// Add main View
+// 添加主视图
 var mainView = myApp.addView('.view-main', { //初始化视图
-	// Enable dynamic Navbar
+	// 启用动态导航栏
 	dynamicNavbar : false,
 });
 var subnaview = myApp.addView('.view-subnav');//初始化subnav视图（左边菜单）
@@ -187,6 +193,10 @@ $$(document).on('pageInit', function(e) { //为所有page的init事件定义相�
 })
 
 //Claim Now
+var calendarDefault = myApp.calendar({
+    input: '#calendar-default',
+});    
+
 function isClaimFormValid(){
 	return $("#ClaimForm").validate({
 		rules:
@@ -289,8 +299,221 @@ myApp.onPageInit('claimnow', function(page) {
 		});
 
 	});
+	
+	var calendarDefault = myApp.calendar({
+	    input: '#calendar-default',
+	});   
 })
 
+myApp.onPageInit('shop', function (page) {
+$$('.buynow').on('click', function () {
+    myApp.confirm('确定要继续购买吗?', '您将购买此保险产品', 
+      function () {
+        myApp.alert('已成功发送购买请求！','Insurance');
+      },
+      function () {
+        myApp.alert('您已取消购买','Insurance');
+      }
+    );
+});
+})
 
+myApp.onPageInit('shopitem', function (page) {
+	$$('.buynow').on('click', function () {
+	    myApp.confirm('确定要继续购买吗?', '您将购买此保险产品', 
+	      function () {
+	        myApp.alert('已成功发送购买请求！','Insurance');
+	      },
+	      function () {
+	        myApp.alert('您已取消购买','Insurance');
+	      }
+	    );
+	});
+})
 
+//searchbar-class
+myApp.onPageInit('classone', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
 
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+
+myApp.onPageInit('classtwo', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('classthree', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('classfour', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('classfive', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('classsix', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+
+//searchbar-commonqa
+myApp.onPageInit('commonqaone', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('commonqatwo', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('commonqathree', function (page) {
+	var mySearchbar = myApp.searchbar('.searchbar', {
+	    searchList: '.list-block-search',
+	    searchIn: '.item-title'
+	}); 
+	$("#searchbar").hide();
+
+	$(".searchbtn").click(function() {
+		$("#searchbar").show();
+	});
+	$(".searchbar-cancel").click(function() {
+		$("#searchbar").hide();
+	});
+})
+myApp.onPageInit('commonqafour', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('commonqafive', function (page) {
+var mySearchbar = myApp.searchbar('.searchbar', {
+    searchList: '.list-block-search',
+    searchIn: '.item-title'
+}); 
+$("#searchbar").hide();
+
+$(".searchbtn").click(function() {
+	$("#searchbar").show();
+});
+$(".searchbar-cancel").click(function() {
+	$("#searchbar").hide();
+});
+})
+myApp.onPageInit('commonqasix', function (page) {
+	var mySearchbar = myApp.searchbar('.searchbar', {
+	    searchList: '.list-block-search',
+	    searchIn: '.item-title'
+	}); 
+	$("#searchbar").hide();
+
+	$(".searchbtn").click(function() {
+		$("#searchbar").show();
+	});
+	$(".searchbar-cancel").click(function() {
+		$("#searchbar").hide();
+	});
+})
+myApp.onPageInit('healthqa', function (page) {
+	var mySearchbar = myApp.searchbar('.searchbar', {
+	    searchList: '.list-block-search',
+	    searchIn: '.item-title'
+	}); 
+	$("#searchbar").hide();
+
+	$(".searchbtn").click(function() {
+		$("#searchbar").show();
+	});
+	$(".searchbar-cancel").click(function() {
+		$("#searchbar").hide();
+	});
+})
